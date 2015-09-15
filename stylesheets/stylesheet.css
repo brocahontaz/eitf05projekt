@@ -1,0 +1,22 @@
+/*
+*
+*
+*
+*			-- WEBSHOP EITF05 Stylesheet --
+*
+*
+*
+*/
+
+/*
+
+		Main body properties
+
+*/
+body, html {
+	min-width: 100%;
+	min-height: 100%;
+	background: #FFFFFF;
+	padding: 0;
+	margin: 0;
+}
