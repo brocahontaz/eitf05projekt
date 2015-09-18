@@ -188,7 +188,7 @@ a.menu_object {
 a.menu_object:hover {
 	color: #10bf31;
 	background-color: #5a5a5a;
-	border-bottom: 4px solid #10bf31;
+	border-bottom: 4px solid #5a5a5a;
 }
 
 /* Active menu object */

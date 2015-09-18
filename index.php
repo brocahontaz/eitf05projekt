@@ -66,15 +66,19 @@
 			</div>
 			<div id="color_box_wrapper">
 				<div id="color_box_left">
-					<div class="color_box_image">
-					</div>
-					<div class="color_box_text">
+					<div id="color_box_content left">
+						<div class="color_box_image">
+						</div>
+						<div class="color_box_text">
+						</div>
 					</div>
 				</div>
 				<div id="color_box_right">
-					<div class="color_box_text">
-					</div>
-					<div class="color_box_image">
+					<div id="color_box_content right">
+						<div class="color_box_text">
+						</div>
+						<div class="color_box_image">
+						</div>
 					</div>
 				</div>
 			</div>
