@@ -1,0 +1,84 @@
+set foreign_key_checks = 0;
+
+drop table if exists Users;
+
+drop table if exists Theaters;
+
+drop table if exists Performances;
+
+drop table if exists Movies;
+
+drop table if exists Reservations;
+
+
+set foreign_key_checks = 1;
+
+
+
+
+create table Users(
+
+userName char(15) NOT NULL PRIMARY KEY,
+
+password varchar(20) DEFAULT NULL,
+
+adress varchar(200) DEFAULT NULL,
+
+email varchar(50) DEFAULT NULL
+);
+
+
+
+create table Products(
+
+productId integer auto_increment NOT NULL PRIMARY KEY
+,
+productName varchar(20) NOT NULL,
+price float NOT NULL,
+numLeft int NOT NULL
+);
+
+
+
+create table Categories(
+
+categoryName char(20) NOT NULL PRIMARY KEY,
+FOREIGN KEY (categoryName)  references Categories(categoryName)
+);
+
+create table ShoppingCarts(
+shoppingCartId integer auto_increment NOT NULL PRIMARY KEY
+,
+FOREIGN KEY (userName)  references Users(userName),
+FOREIGN KEY (productId)  references Products(productId)
+)
+;
+
+
+
+Insert into Products VALUES
+
+('0','Banana', 5.98 , 100),
+
+('0','Apple', 3.56 , 100),
+
+('0','Carrot', 6.00 , 100),
+
+('0','Onion', 1.45 , 100),
+
+('0','Blueberry', 8.89 , 100),
+
+('0','Strawberry', 9.23 , 100),
+
+('0','Kiwi', 5.65 , 100),
+
+('0','Rotten plum', 0.54 , 100),
+('0','Pineapple', 2.45 , 100);
+
+
+Insert into Categories VALUES
+
+('Fallen fruit'),
+('Vegetables'),
+('Fruit'),
+('Berries');
