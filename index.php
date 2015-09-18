@@ -42,22 +42,47 @@
 							<span class="header1">
 								FRESH FRUIT
 							</span>
+							<br />
 							<span class="header2">
 								DIRECTLY TO
 								<br />
 								YOUR DOOR
 							</span>
 						</div>
+						<div id="frontpage_header_text">
+							We have carefully handpicked the best fruit from <br />
+							local markets and gardens all around the world, <br />
+							for you to enjoy. Without ever having to leave <br />
+							your cosy home, the delights of the world are <br />
+							yours to claim - just a click away!
+						</div>
+						<a href="store.php">
+						<div id="frontpage_header_button">
+							BROWSE NOW!
+						</div>
+						</a>
 					</div>
 				</div>
 			</div>
 			<div id="color_box_wrapper">
 				<div id="color_box_left">
+					<div class="color_box_image">
+					</div>
+					<div class="color_box_text">
+					</div>
 				</div>
 				<div id="color_box_right">
+					<div class="color_box_text">
+					</div>
+					<div class="color_box_image">
+					</div>
 				</div>
 			</div>
 			<div id="footer_wrapper">
+				<div id="footer_content">
+					<div class="footer_object">
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
