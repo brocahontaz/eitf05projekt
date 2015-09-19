@@ -66,18 +66,50 @@
 			</div>
 			<div id="color_box_wrapper">
 				<div id="color_box_left">
-					<div id="color_box_content left">
+					<div class="color_box_content left">
 						<div class="color_box_image">
+							<img src="./images/norweiganbanana.png" class="c_b_image" />
 						</div>
-						<div class="color_box_text">
+						<div class="color_box_text_container">
+							<p class="color_box_header1">
+								NEW IN STOCK
+							</p>
+							<p class="color_box_header2">
+								NORWEIGAN BANANAS
+							</p>
+							<p class="color_box_text">
+							Straight from the plantations in Trondheim, we bring you this delicious treat for the family to enjoy. <br />
+							SPECIAL SALE - NOW ONLY 9.99$ PER PIECE
+							</p>
+							<a href="">
+							<div class="color_box_button">
+								GET NOW
+							</div>
+							</a>
 						</div>
 					</div>
 				</div>
 				<div id="color_box_right">
-					<div id="color_box_content right">
-						<div class="color_box_text">
+					<div class="color_box_content right">
+						<div class="color_box_text_container">
+							<p class="color_box_header1">
+								FAN FAVORITE
+							</p>
+							<p class="color_box_header2">
+								WALKING PUMPKIN
+							</p>
+							<p class="color_box_text">
+							This magical sensation will tickle your taste buds once again, as it is finally returning by popular demand. 
+							Be sure to claim yours today, before they run away forever.
+							</p>
+							<a href="">
+							<div class="color_box_button">
+								GET NOW
+							</div>
+							</a>
 						</div>
 						<div class="color_box_image">
+							<img src="./images/walkingpumpkin.png" class="c_b_image" />
 						</div>
 					</div>
 				</div>

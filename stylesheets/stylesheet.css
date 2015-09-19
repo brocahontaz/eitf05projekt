@@ -153,6 +153,8 @@ h3 {
 		Links
 
 */
+
+/*White to green on hover*/
 a.white_to_green {
 	color: #FFF;
 	text-decoration: none;
@@ -340,7 +342,7 @@ a.menu_object_active {
 */
 #color_box_wrapper {
 	width: 100%;
-	min-width: 1200px;
+	min-width: 1600px;
 	padding: 0;
 }
 
@@ -352,7 +354,8 @@ a.menu_object_active {
 #color_box_left  {
 	float: left;
 	width: 50%;
-	height: 340px;
+	min-width: 800px;
+	height: 380px;
 	background-color: #15c536;
 }
 
@@ -364,8 +367,122 @@ a.menu_object_active {
 #color_box_right {
 	float: left;
 	width: 50%;
-	height: 340px;
+	min-width: 800px;
+	height: 380px;
 	background-color: #087b1d;
+}
+
+/*
+	
+		Color box content
+	
+*/
+.color_box_content {
+	width: 800px;
+	height: 380px;
+}
+
+.color_box_content.left {
+	float: right;
+}
+
+/*
+	
+		Color box image
+	
+*/
+.color_box_image {
+	float: left;
+	width: 230px;
+	height: 380px;
+}
+
+/* Image */
+img.c_b_image {
+	width: 230px;
+	border: 3px solid #FFF;
+	border-radius: 115px;
+	margin-top: 75px;
+}
+/*
+	
+		Color box text container
+	
+*/
+.color_box_text_container {
+	float: left;
+	width: 500px;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+/*
+	
+		Color box header1
+	
+*/
+p.color_box_header1 {
+	font-size: 30px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 1px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Color box header1
+	
+*/
+p.color_box_header2 {
+	font-size: 40px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 1px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+		
+		
+	
+*/
+
+p.color_box_text {
+	font-size: 24px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 30px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Color box button
+	
+*/
+.color_box_button {
+	float: right;
+	background-color: #35573b;
+	border-radius: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	opacity: 0.84;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #FFF;
+	text-decoration: none;
 }
 
 /*
@@ -401,6 +518,12 @@ a.menu_object_active {
 	
 }
 
+/*
+	
+		Footer header
+	
+*/
+
 .footer_header1 {
 	font-size: 18px;
 	font-family: Microsoft New Tai Lue, Corbel, Arial;
@@ -411,10 +534,16 @@ a.menu_object_active {
 	text-decoration: none;
 }
 
+/* Span for green text */
 .green {
 	color: #15c536;
 }
 
+/*
+	
+		Footer text paragraph
+	
+*/
 p.footer_text1 {
 	margin-top: 20px;
 	font-size: 18px;
@@ -426,6 +555,11 @@ p.footer_text1 {
 	text-decoration: none;
 }
 
+/*
+	
+		Copyright paragraph
+	
+*/
 p.copyright {
 	margin-top: 10px;
 	font-size: 16px;
@@ -437,6 +571,11 @@ p.copyright {
 	text-decoration: none;
 }
 
+/*
+	
+		Terms paragraph
+	
+*/
 p.terms {
 	margin-top: 10px;
 	font-size: 14px;
@@ -448,9 +587,20 @@ p.terms {
 	text-decoration: none;
 }
 
+/*
+	
+		Div for get started
+	
+*/
 #get_started {
 	float: right;
 }
+
+/*
+	
+		Learn more container
+	
+*/
 
 #learn_more {
 	float: left;
@@ -467,6 +617,11 @@ p.terms {
 	text-decoration: none;
 }
 
+/*
+	
+		Get started button
+	
+*/
 #get_started_button {
 	float: left;
 	background-color: #15c536;
