@@ -72,13 +72,13 @@
 						<a href="index.php" class="menu_object_active">
 							HOME
 						</a>
-						<a href="index.php" class="menu_object">
+						<a href="store.php?browseall" class="menu_object">
 							STORE
 						</a>
-						<a href="index.php" class="menu_object">
+						<a href="about.php" class="menu_object">
 							ABOUT
 						</a>
-						<a href="index.php" class="menu_object">
+						<a href="help.php" class="menu_object">
 							HELP
 						</a>
 						<?php if($isLogedIn) { ?>
@@ -185,7 +185,8 @@
 							©2015 the<span class="green">fruit</span>basket. ALL RIGHTS RESERVED.
 						</p>
 						<p class="terms">
-							<a href="" class="white_to_green">Privacy policy</a> | <a href="" class="white_to_green">Terms & Conditions</a>
+							<a href="" class="white_to_green">Privacy policy</a> | <a href="" class="white_to_green">Terms & Conditions</a> | 
+							<a href="http://www.rooter.se" class="white_to_green" target="_blank">rooter.se</a> 
 						</p>
 					</div>
 					<div class="footer_object">
@@ -194,7 +195,7 @@
 						</span>
 						<p class="footer_text1">
 							<a href="" class="white_to_green">Amanda</a> <br />
-							<a href="" class="white_to_green">Johan</a> <br />
+							<a href="http://www.rooter.se" class="white_to_green" target="_blank">Johan</a> <br />
 							<a href="" class="white_to_green">Michael</a> <br />
 							<a href="" class="white_to_green">Therese</a>
 						</p>

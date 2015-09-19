@@ -7,7 +7,6 @@
 	$isLogedIn = isset($_SESSION['username']);
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
-		header("Location: index.php");
 	}
 ?>
 <!DOCTYPE HTML>
@@ -70,10 +69,10 @@
 			<div id="menu_wrapper">
 				<div id="menu_container">
 					<!--<div id="menu_object_container">-->
-						<a href="index.php" class="menu_object_active">
+						<a href="index.php" class="menu_object">
 							HOME
 						</a>
-						<a href="index.php?browseall" class="menu_object">
+						<a href="store.php?browseall" class="menu_object_active">
 							STORE
 						</a>
 						<a href="about.php" class="menu_object">
@@ -92,45 +91,46 @@
 			</div>
 			<div id="content_wrapper">
 				<div id="content">
-				<p class="breadtext">
-					<h1>Fill in your credentials to create Your TFB account today.</h1>
-				</p>
-<?php
-	if(isset($_GET['empty'])) {
-?>
-					<p class ="breadtext" style="color: red";>
-						Some field/s were left empty. Please try again.
-					</p>
-<?php
-	} else if(isset($_GET['falsepass'])) {
-?>
-					<p class ="breadtext" style="color: red";>
-						The passwords does not correspond. Try again, please.
-					</p>
-<?php
-	} else if(isset($_GET['falsemail'])) {
-?>
-					<p class ="breadtext" style="color: red";>
-						The emails does not correspond. Try again, please.
-					</p>
-<?php
-	} else if(isset($_GET['success'])) {
-?>
-					<p class ="breadtext" style="color: green";>
-						The account were successfully created! :) Login to start using it.
-					</p>
-<?php
-	}
-?>				
-					<form name="createuser "id="createuser" method="POST" action="includes/createuser_parse.php">
-						<input type="text" class="input_field_login" name="tfb_name" placeholder="USERNAME"/><br /><br />
-						<input type="text" class="input_field_login" name="address" placeholder="ADDRESS"/><br /><br />
-						<input type="text" class="input_field_login" name="tfb_email1" placeholder="EMAIL"/><br /><br />
-						<input type="text" class="input_field_login" name="tfb_email2" placeholder="REPEAT EMAIL"/><br /><br />
-						<input type="password" class="input_field_login" name="tfb_password1" placeholder="PASSWORD"/><br /><br />
-						<input type="password" class="input_field_login" name="tfb_password2" placeholder="REPEAT PASSWORD"/><br /><br />
-						<input type="submit" class="submit_button_login" name="submit" value="CREATE ACCOUNT" />
-					</form>
+					<div id="store_menu">
+					<?php if(isset($_GET['browseall']) || !isset($_GET['browsecategory'])) { ?>
+					<a href="store.php?browseall" class="store_menu_object active">
+					BROWSING ALL
+					<?php } else { ?>
+					<a href="store.php?browseall" class="store_menu_object">
+					BROWSE ALL
+					<?php } ?>
+					</a>
+					<?php if(isset($_GET['browsecategory'])) { ?>
+					<a href="store.php?browsecategory" class="store_menu_object active">
+					BROWSING BY CATEGORY
+					<?php } else { ?>
+					<a href="store.php?browsecategory" class="store_menu_object">
+					BROWSE BY CATEGORY
+					<?php } ?>
+					</a>
+					</div>
+					<?php if(isset($_GET['browseall']) || !isset($_GET['browsecategory'])) { ?>
+					<div class="store_header_box">
+						PROMOTED
+					</div>
+					<div class="promoted_store_object">
+					</div>
+					<div class="promoted_store_object">
+					</div>
+					<div class="promoted_store_object">
+					</div>
+					<div class="store_header_box">
+						PRODUCTS
+					</div>
+					<div class="store_object">
+					</div>
+					<div class="store_object">
+					</div>
+					<div class="store_object">
+					</div>
+					<div class="store_object">
+					</div>
+					<?php } ?>
 				</div>
 			</div>
 			<div id="footer_wrapper">
@@ -150,7 +150,8 @@
 							©2015 the<span class="green">fruit</span>basket. ALL RIGHTS RESERVED.
 						</p>
 						<p class="terms">
-							<a href="" class="white_to_green">Privacy policy</a> | <a href="" class="white_to_green">Terms & Conditions</a>
+							<a href="" class="white_to_green">Privacy policy</a> | <a href="" class="white_to_green">Terms & Conditions</a> | 
+							<a href="http://www.rooter.se" class="white_to_green" target="_blank">rooter.se</a> 
 						</p>
 					</div>
 					<div class="footer_object">
@@ -159,7 +160,7 @@
 						</span>
 						<p class="footer_text1">
 							<a href="" class="white_to_green">Amanda</a> <br />
-							<a href="" class="white_to_green">Johan</a> <br />
+							<a href="http://www.rooter.se" class="white_to_green" target="_blank">Johan</a> <br />
 							<a href="" class="white_to_green">Michael</a> <br />
 							<a href="" class="white_to_green">Therese</a>
 						</p>

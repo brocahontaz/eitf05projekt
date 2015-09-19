@@ -59,9 +59,16 @@ p.breadtext {
 
 */
 #main_wrapper#{
+	
 	min-width: 100%;
 	min-height: 100%;
 	padding: 0;
+}
+
+.main_wrapper:after {
+clear: both;
+content: "";
+display: block;
 }
 
 /*
@@ -207,9 +214,18 @@ p.breadtext {
 	
 */
 #content_wrapper {
+	float: left;
 	width: 100%;
 	min-width: 1200px;
-	background-color: #FFF;
+	height: auto;
+	margin-bottom: 10px;
+	background-color: #fff;
+}
+
+.content_wrapper:after {
+clear: both;
+content: "";
+display: block;
 }
 
 /*
@@ -218,12 +234,24 @@ p.breadtext {
 	
 */
 #content {
+	
 	width: 1200px;
+	height: auto;
+	left: 0;
+	right: 0;
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 30px;
 	padding-bottom: 30px;
+	display: block;
 }
+
+.content:after {
+clear: both;
+content: "";
+display: block;
+}
+
 /*
 
 		Links
@@ -297,6 +325,111 @@ a.menu_object_active {
 	color: #10bf31;
 	text-decoration: none;
 	border-bottom: 4px solid #10bf31;
+}
+
+/*
+	
+		Store menu
+	
+*/
+#store_menu {
+	float: left;
+	margin-top: -10px;
+	margin-bottom: 15px;
+	width: 1200px;
+	height: 20px;
+}
+
+/*
+	
+		Store menu object
+	
+*/
+a.store_menu_object {
+	float: left;
+	margin-top: 0;
+	margin-left: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 20px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 20px;
+	color: #000;
+	text-decoration: none;
+}
+
+a.store_menu_object:hover {
+	color: #10bf31;
+}
+
+a.store_menu_object.active {
+	color: #10bf31;
+}
+
+/*
+	
+		Store header box
+	
+*/
+.store_header_box {
+	float: left;
+	width: 1130px;
+	background-color: #f0f0f0;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-left: 35px;
+	font-size: 20px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 20px;
+	color: #000;
+	text-decoration: none;
+	margin-bottom: 10px;
+}
+
+.store_header_box:after {
+clear: both;
+content: "";
+display: block;
+}
+
+/*
+	
+		Promoted store object
+	
+*/
+.promoted_store_object {
+	float: left;
+	width: 380px;
+	height: 400px;
+	background-color: #fff;
+	border: 2px solid #f0f0f0;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+
+.promoted_store_object:after {
+clear: both;
+content: "";
+display: block;
+}
+
+/*
+	
+		Store object
+	
+*/
+.store_object {
+	float: left;
+	width: 282px;
+	height: 300px;
+	background-color: #fff;
+	border: 2px solid #f0f0f0;
+	margin-right: 5px;
+	margin-bottom: 10px;
 }
 
 /*
@@ -579,6 +712,7 @@ p.color_box_text {
 */
 #footer_wrapper {
 	width: 100%;
+	height: auto;
 }
 
 /*
@@ -681,6 +815,7 @@ p.terms {
 */
 #get_started {
 	float: right;
+	width: 317px;
 }
 
 /*
