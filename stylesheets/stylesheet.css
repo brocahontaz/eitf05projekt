@@ -91,19 +91,57 @@ h3 {
 
 /*
 	
-		Login/signin box
+		Account box
 	
 */
 
-#logsignin_box {
+#account_box {
 	float: right;
-	margin-top: 20px;
+	margin-top: 25px;
+}
+
+/* Account content */
+.account_content {
+	float: left;
+	margin-left: 20px;
+}
+
+/*
+	
+		Signed in as box
+	
+*/
+#signed_in_as_box {
+	margin-top: 10px;
+	margin-bottom: 20px;
 	font-size: 18px;
-	font-family: Corbel, Arial;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
 	font-weight: normal;
 	font-style: none;
 	line-height: 18px;
-	color: #484848;
+	color: #15c536;
+	text-decoration: none;
+}
+
+/* Black span */
+.black {
+	color: #000;
+}
+
+/*
+	
+	Sign in / register / account menu
+	
+*/
+#account_menu {
+	margin-top: 10px;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #15c536;
+	text-decoration: none;
 }
 
 /*
@@ -162,6 +200,17 @@ a.white_to_green {
 
 a.white_to_green:hover {
 	color: #10bf31;
+	text-decoration: none;
+}
+
+/*Light green to dark green on hover*/
+a.lgreen_to_dgreen {
+	color: #15c536;
+	text-decoration: none;
+}
+
+a.lgreen_to_dgreen:hover {
+	color: #087b1d;
 	text-decoration: none;
 }
 

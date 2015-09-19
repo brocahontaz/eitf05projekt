@@ -15,6 +15,24 @@
 					<div id="logo_box">
 						<img src="./images/thefruitbasketlogo.png" />
 					</div>
+					<div id="account_box">
+						<div class="account_content">
+							<div id="signed_in_as_box">
+								SIGNED IN AS <span class="black">brocahontaz</span>
+							</div>
+							<div id="account_menu">
+								<!--SIGN IN / REGISTER-->
+								<a href="" class="lgreen_to_dgreen">MY ACCOUNT</a> - 
+								<a href="" class="lgreen_to_dgreen">ORDERS</a> - 
+								<a href="" class="lgreen_to_dgreen">SETTINGS</a>
+							</div>
+						</div>
+						<div class="account_content">
+							<a href="">
+								<img src="./images/shoppingcart.png" />
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="menu_wrapper">
