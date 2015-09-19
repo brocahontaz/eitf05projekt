@@ -171,12 +171,140 @@
 						PRODUCTS
 					</div>
 					<div class="store_object">
+						<div class="product_category">
+							COLLECTIONS
+						</div>
+						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="product_name">
+							TFB SPECIAL
+						</div>
+						<div class="product_info">
+							Our finest - 199.99$
+						</div>
+						<div class="buy_now small">
+							BUY NOW
+						</div>
 					</div>
 					<div class="store_object">
+						<div class="product_category">
+							COLLECTIONS
+						</div>
+						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="product_name">
+							TFB SPECIAL
+						</div>
+						<div class="product_info">
+							Our finest - 199.99$
+						</div>
+						<div class="buy_now small">
+							BUY NOW
+						</div>
 					</div>
 					<div class="store_object">
+						<div class="product_category">
+							COLLECTIONS
+						</div>
+						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="product_name">
+							TFB SPECIAL
+						</div>
+						<div class="product_info">
+							Our finest - 199.99$
+						</div>
+						<div class="buy_now small">
+							BUY NOW
+						</div>
 					</div>
 					<div class="store_object">
+						<div class="product_category">
+							COLLECTIONS
+						</div>
+						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="product_name">
+							TFB SPECIAL
+						</div>
+						<div class="product_info">
+							Our finest - 199.99$
+						</div>
+						<div class="buy_now small">
+							BUY NOW
+						</div>
+					</div>
+					<div class="store_object">
+						<div class="product_category">
+							COLLECTIONS
+						</div>
+						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="product_name">
+							TFB SPECIAL
+						</div>
+						<div class="product_info">
+							Our finest - 199.99$
+						</div>
+						<div class="buy_now small">
+							BUY NOW
+						</div>
+					</div>
+					<div class="store_object">
+						<div class="product_category">
+							COLLECTIONS
+						</div>
+						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="product_name">
+							TFB SPECIAL
+						</div>
+						<div class="product_info">
+							Our finest - 199.99$
+						</div>
+						<div class="buy_now small">
+							BUY NOW
+						</div>
+					</div>
+					<div class="store_object">
+						<div class="product_category">
+							COLLECTIONS
+						</div>
+						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="product_name">
+							TFB SPECIAL
+						</div>
+						<div class="product_info">
+							Our finest - 199.99$
+						</div>
+						<div class="buy_now small">
+							BUY NOW
+						</div>
+					</div>
+					<div class="store_object">
+						<div class="product_category">
+							COLLECTIONS
+						</div>
+						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="product_name">
+							TFB SPECIAL
+						</div>
+						<div class="product_info">
+							Our finest - 199.99$
+						</div>
+						<div class="buy_now small">
+							BUY NOW
+						</div>
 					</div>
 					<?php } ?>
 				</div>

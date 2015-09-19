@@ -40,6 +40,26 @@ h3 {
 
 /*
 	
+	EXPANDERS
+	
+*/
+
+.sliderB{
+	display:none;
+}
+.togglerB:hover,
+.closeSliderB:hover{
+	cursor:pointer;
+}
+
+#slide_content {
+	width: 800px;
+	margin-top: -20px;
+	float: left;
+}
+
+/*
+	
 		Some paragraphs
 	
 */
@@ -51,6 +71,11 @@ p.breadtext {
 	line-height: 20px;
 	color: #000;
 	text-decoration: none;
+}
+
+p.breadtext.italic {
+	width: 800px;
+	font-style: italic;
 }
 
 /*
@@ -489,6 +514,11 @@ display: block;
 	vertical-align: middle;
 }
 
+.buy_now.small {
+	width: 282px;
+	margin-top: 10px;
+}
+
 /*
 	
 		Store object
@@ -502,6 +532,64 @@ display: block;
 	border: 2px solid #f0f0f0;
 	margin-right: 5px;
 	margin-bottom: 10px;
+}
+
+.product_category {
+	margin-top: 15px;
+	width: 282px;
+	font-size: 17px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 17px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.product_picture {
+	margin-top: 15px;
+	width: 282px;
+	height: 150px;
+	font-size: 17px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 17px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	background-size: 100%;
+}
+
+.product_name {
+	margin-top: 15px;
+	width: 282px;
+	font-size: 15px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 15px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.product_info {
+	margin-top: 5px;
+	width: 282px;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #484848;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
 }
 
 /*

@@ -7,7 +7,6 @@
 	$isLogedIn = isset($_SESSION['username']);
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
-		header("Location: index.php");
 	}
 ?>
 <!DOCTYPE HTML>
@@ -19,6 +18,37 @@
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" />
 		<link rel="icon" type="image/png" href="./images/favicon.png" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				function toggleSlidesB(){
+					$('.store_menu_object').click(function(e){
+						var id = $(this).attr('id');
+						
+						// If this isn't already active
+						if (!$(this).hasClass("active")) {
+						// Remove the class from anything that is active
+						$(".store_menu_object").removeClass("active");
+						// And make this active
+						$(this).addClass("active");
+						}
+						
+						var widgetId = id.substring(id.indexOf('-') + 1, id.length);
+						$('#' + widgetId).siblings('.sliderB').slideUp(600);
+						$('#' + widgetId).delay(500).slideToggle();
+						$(this).toggleClass('sliderExpandedB');
+						$('.closeSliderB').click(function(){
+							$(this).parent().hide('slow');
+							var relatedToggler='togglerB-'+$(this).parent().attr('id');
+							$('#'+relatedToggler).removeClass('sliderExpandedB');
+						});
+					});
+				};
+				$(function(){
+					toggleSlidesB();
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div id="main_wrapper">
@@ -76,7 +106,7 @@
 						<a href="store.php?browseall" class="menu_object">
 							STORE
 						</a>
-						<a href="about.php" class="menu_object">
+						<a href="about.php" class="menu_object_active">
 							ABOUT
 						</a>
 						<a href="help.php" class="menu_object">
@@ -92,45 +122,47 @@
 			</div>
 			<div id="content_wrapper">
 				<div id="content">
-				<p class="breadtext">
-					<h1>Fill in your credentials to create Your TFB account today.</h1>
-				</p>
-<?php
-	if(isset($_GET['empty'])) {
-?>
-					<p class ="breadtext" style="color: red";>
-						Some field/s were left empty. Please try again.
+					<div id="store_menu">
+					<a class="store_menu_object active" style="cursor: pointer" id="toggler-slideDescription">
+					PROJECT DESCRIPTION
+					</a>
+					
+					<a class="store_menu_object" style="cursor: pointer" id="toggler-slideReport">
+					REPORT
+					</a>
+					
+					<a class="store_menu_object" style="cursor: pointer" id="toggler-slideTeam">
+					TEAM
+					</a>
+					
+					<a class="store_menu_object" style="cursor: pointer" id="toggler-slideSource">
+					SOURCE CODE
+					</a>
+					</div>
+					<div id="slide_content">
+					<div class="sliderB" id="slideDescription" style="display:inline">
+					<h1>Web Shop Under Attack</h1>
+					<p class="breadtext">
+					AN EITF05 WEB SECURITY PROJECT
 					</p>
-<?php
-	} else if(isset($_GET['falsepass'])) {
-?>
-					<p class ="breadtext" style="color: red";>
-						The passwords does not correspond. Try again, please.
+					<p class="breadtext italic">
+					The course includes one project assignment. This is a programming project in which you will create a small but (almost) fully functional web shop. 
+					You will secure your web shop against some common web threats, and you will demonstrate how some of these attacks work and how to mitigate them.
 					</p>
-<?php
-	} else if(isset($_GET['falsemail'])) {
-?>
-					<p class ="breadtext" style="color: red";>
-						The emails does not correspond. Try again, please.
-					</p>
-<?php
-	} else if(isset($_GET['success'])) {
-?>
-					<p class ="breadtext" style="color: green";>
-						The account were successfully created! :) Login to start using it.
-					</p>
-<?php
-	}
-?>				
-					<form name="createuser "id="createuser" method="POST" action="includes/createuser_parse.php">
-						<input type="text" class="input_field_login" name="tfb_name" placeholder="USERNAME"/><br /><br />
-						<input type="text" class="input_field_login" name="address" placeholder="ADDRESS"/><br /><br />
-						<input type="text" class="input_field_login" name="tfb_email1" placeholder="EMAIL"/><br /><br />
-						<input type="text" class="input_field_login" name="tfb_email2" placeholder="REPEAT EMAIL"/><br /><br />
-						<input type="password" class="input_field_login" name="tfb_password1" placeholder="PASSWORD"/><br /><br />
-						<input type="password" class="input_field_login" name="tfb_password2" placeholder="REPEAT PASSWORD"/><br /><br />
-						<input type="submit" class="submit_button_login" name="submit" value="CREATE ACCOUNT" />
-					</form>
+					</div>
+					
+					<div class="sliderB" id="slideReport">
+					<h1>Report</h1>
+					</div>
+					
+					<div class="sliderB" id="slideTeam">
+					<h1>Team</h1>
+					</div>
+					
+					<div class="sliderB" id="slideSource">
+					<h1>Source Code</h1>
+					</div>
+					</div>
 				</div>
 			</div>
 			<div id="footer_wrapper">
