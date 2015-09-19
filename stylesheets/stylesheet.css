@@ -27,7 +27,7 @@ body, html {
 	
 */
 h1 {
-	font-family: Corbel, Arial;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
 }
 
 h2 {
@@ -36,6 +36,21 @@ h2 {
 
 h3 {
 	font-family: Corbel, Arial;
+}
+
+/*
+	
+		Some paragraphs
+	
+*/
+p.breadtext {
+	font-size: 20px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 20px;
+	color: #000;
+	text-decoration: none;
 }
 
 /*
@@ -91,7 +106,7 @@ h3 {
 
 /*
 	
-		Account box
+	Account box
 	
 */
 
@@ -186,6 +201,29 @@ h3 {
 	float: left;
 }
 
+/*
+	
+		Content wrapper
+	
+*/
+#content_wrapper {
+	width: 100%;
+	min-width: 1200px;
+	background-color: #FFF;
+}
+
+/*
+	
+		Content
+	
+*/
+#content {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
 /*
 
 		Links

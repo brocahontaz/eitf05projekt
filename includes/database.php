@@ -151,9 +151,9 @@ class Database {
 	*@userType the type of the user.
 	*
 	**/
-	public function createUser($userName, $password, $userType) {
-		$sql = "INSERT INTO users(userName, password, ".$userType.") VALUES(?, ?, '1')";
-		$result = $this->executeUpdate($sql, array($userName, $password));
+	public function createUser($userName, $password, $address, $email) {
+		$sql = "INSERT INTO users(userName, passWord, address, email) VALUES(?, ?, ?, ?)";
+		$result = $this->executeUpdate($sql, array($userName, $password, $address, $email));
 	}
 	
 	/**

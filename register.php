@@ -7,6 +7,7 @@
 	$isLogedIn = isset($_SESSION['username']);
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
+		header("Location: index.php");
 	}
 ?>
 <!DOCTYPE HTML>
@@ -89,83 +90,47 @@
 					<!--</div>-->
 				</div>
 			</div>
-			<div id="frontpage_big_pic">
-				<div id="frontpage_big_pic_container">
-					<div id="frontpage_big_pic_content">
-						<div id="frontpage_header_box">
-							<span class="header1">
-								FRESH FRUIT
-							</span>
-							<br />
-							<span class="header2">
-								DIRECTLY TO
-								<br />
-								YOUR DOOR
-							</span>
-						</div>
-						<div id="frontpage_header_text">
-							We have carefully handpicked the best fruit from <br />
-							local markets and gardens all around the world, <br />
-							for you to enjoy. Without ever having to leave <br />
-							your cosy home, the delights of the world are <br />
-							yours to claim - just a click away!
-						</div>
-						<a href="store.php">
-						<div id="frontpage_header_button">
-							BROWSE NOW!
-						</div>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div id="color_box_wrapper">
-				<div id="color_box_left">
-					<div class="color_box_content left">
-						<div class="color_box_image">
-							<img src="./images/norweiganbanana.png" class="c_b_image" />
-						</div>
-						<div class="color_box_text_container">
-							<p class="color_box_header1">
-								NEW IN STOCK
-							</p>
-							<p class="color_box_header2">
-								NORWEIGAN BANANAS
-							</p>
-							<p class="color_box_text">
-							Straight from the plantations in Trondheim, we bring you this delicious treat for the family to enjoy. <br />
-							SPECIAL SALE - NOW ONLY 9.99$ PER PIECE
-							</p>
-							<a href="">
-							<div class="color_box_button">
-								GET NOW
-							</div>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div id="color_box_right">
-					<div class="color_box_content right">
-						<div class="color_box_text_container">
-							<p class="color_box_header1">
-								FAN FAVORITE
-							</p>
-							<p class="color_box_header2">
-								WALKING PUMPKIN
-							</p>
-							<p class="color_box_text">
-							This magical sensation will tickle your taste buds once again, as it is finally returning by popular demand. 
-							Be sure to claim yours today, before they run away forever.
-							</p>
-							<a href="">
-							<div class="color_box_button">
-								GET NOW
-							</div>
-							</a>
-						</div>
-						<div class="color_box_image">
-							<img src="./images/walkingpumpkin.png" class="c_b_image" />
-						</div>
-					</div>
+			<div id="content_wrapper">
+				<div id="content">
+				<p class="breadtext">
+					<h1>Fill in your credentials to create Your TFB account today.</h1>
+				</p>
+<?php
+	if(isset($_GET['empty'])) {
+?>
+					<p class ="breadtext" style="color: red";>
+						Some field/s were left empty. Please try again.
+					</p>
+<?php
+	} else if(isset($_GET['falsepass'])) {
+?>
+					<p class ="breadtext" style="color: red";>
+						The passwords does not correspond. Try again, please.
+					</p>
+<?php
+	} else if(isset($_GET['falsemail'])) {
+?>
+					<p class ="breadtext" style="color: red";>
+						The emails does not correspond. Try again, please.
+					</p>
+<?php
+	} else if(isset($_GET['success'])) {
+?>
+					<p class ="breadtext" style="color: green";>
+						The account were successfully created! :) Login to start using it.
+					</p>
+<?php
+	}
+?>				
+					<form name="createuser "id="createuser" method="POST" action="includes/createuser_parse.php">
+						<input type="text" class="input_field_login" name="tfb_name" placeholder="USERNAME"/><br /><br />
+						<input type="text" class="input_field_login" name="address" placeholder="ADDRESS"/><br /><br />
+						<input type="text" class="input_field_login" name="tfb_email1" placeholder="EMAIL"/><br /><br />
+						<input type="text" class="input_field_login" name="tfb_email2" placeholder="REPEAT EMAIL"/><br /><br />
+						<input type="password" class="input_field_login" name="tfb_password1" placeholder="PASSWORD"/><br /><br />
+						<input type="password" class="input_field_login" name="tfb_password2" placeholder="REPEAT PASSWORD"/><br /><br />
+						<input type="submit" class="submit_button_login" name="submit" value="CREATE ACCOUNT" />
+					</form>
 				</div>
 			</div>
 			<div id="footer_wrapper">
