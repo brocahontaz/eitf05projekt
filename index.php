@@ -1,3 +1,14 @@
+<?php 
+	require_once("includes/database.php");
+	require_once("includes/mysql_connect_data.php");
+	require_once("includes/user.php");
+	require_once("includes/setup.php");
+	$db = new Database($host, $userName, $password, $database);
+	$isLogedIn = isset($_SESSION['username']);
+	if ($isLogedIn) {
+		$user = $_SESSION['user'];
+	}
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -18,13 +29,29 @@
 					<div id="account_box">
 						<div class="account_content">
 							<div id="signed_in_as_box">
-								SIGNED IN AS <span class="black">brocahontaz</span>
+								<?php if ($isLogedIn) { ?>
+								SIGNED IN AS <span class="black"><?php echo $user->getUserName(); ?></span>
+								
+								<?php } else { ?>
+								
+								<form name="loginform" id="loginform" method="POST" action="includes/login_parse.php">
+									<input type="text" class="input_field_login" name="tfb_name" placeholder="USERNAME"/>
+									<input type="password" class="input_field_login" name="tfb_password" placeholder="PASSWORD"/>
+									<input type="submit" class="login_button" name="submit" value="SIGN IN" />
+								</form>
+								<?php } ?>
 							</div>
 							<div id="account_menu">
-								<!--SIGN IN / REGISTER-->
+								<?php if ($isLogedIn) { ?>
 								<a href="" class="lgreen_to_dgreen">MY ACCOUNT</a> - 
 								<a href="" class="lgreen_to_dgreen">ORDERS</a> - 
 								<a href="" class="lgreen_to_dgreen">SETTINGS</a>
+								<?php } else { ?>
+								NOT YET A MEMBER?
+								<a href="register.php" class="lgreen_to_dgreen">
+									<b>REGISTER</b> TODAY!
+								</a>
+								<?php } ?>
 							</div>
 						</div>
 						<div class="account_content">
@@ -50,6 +77,11 @@
 						<a href="index.php" class="menu_object">
 							HELP
 						</a>
+						<?php if($isLogedIn) {?>
+						<a href="includes/logout_parse.php" class="menu_object" style="float: right;">
+							SIGN OUT
+						</a>
+						<?php } ?>
 					<!--</div>-->
 				</div>
 			</div>
