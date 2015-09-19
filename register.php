@@ -70,7 +70,7 @@
 			<div id="menu_wrapper">
 				<div id="menu_container">
 					<!--<div id="menu_object_container">-->
-						<a href="index.php" class="menu_object_active">
+						<a href="index.php" class="menu_object">
 							HOME
 						</a>
 						<a href="index.php?browseall" class="menu_object">

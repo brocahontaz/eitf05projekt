@@ -114,10 +114,58 @@
 						PROMOTED
 					</div>
 					<div class="promoted_store_object">
+						<div class="promoted_category">
+							FALL FRUIT
+						</div>
+						<div class="promoted_picture" style="background-image:url('images/goldenolden.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="promoted_name">
+							GOLDEN OLDEN
+						</div>
+						<div class="promoted_info">
+							Anno 1961 <br/>
+							Two for 3 - 79.99$
+						</div>
+						<div class="buy_now">
+							BUY NOW
+						</div>
 					</div>
 					<div class="promoted_store_object">
+						<div class="promoted_category">
+							USED
+						</div>
+						<div class="promoted_picture" style="background-image:url('images/kimskiwis.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="promoted_name">
+							KIM'S PEELED KIWIS
+						</div>
+						<div class="promoted_info">
+							Used but not abused <br/>
+							One bucket - 19.99$
+						</div>
+						<div class="buy_now">
+							BUY NOW
+						</div>
 					</div>
 					<div class="promoted_store_object">
+						<div class="promoted_category">
+							FRESH
+						</div>
+						<div class="promoted_picture" style="background-image:url('images/hammeredoranges.png')">
+							<img src="" class="image_promoted" />
+						</div>
+						<div class="promoted_name">
+							HAMMERED ORANGES
+						</div>
+						<div class="promoted_info">
+							With a hammer, not alcohol <br/>
+							7$ a piece
+						</div>
+						<div class="buy_now">
+							BUY NOW
+						</div>
 					</div>
 					<div class="store_header_box">
 						PRODUCTS
