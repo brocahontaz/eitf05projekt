@@ -18,6 +18,11 @@
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" />
 		<link rel="icon" type="image/png" href="./images/favicon.png" />
+		
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>-->
+		<script src="script/jquery.js" type="text/javascript"></script>
+		<script src="script/jquery-ui.js" type="text/javascript"></script>
+		<script src="script/menu.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div id="main_wrapper">

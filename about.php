@@ -19,6 +19,9 @@
 		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" />
 		<link rel="icon" type="image/png" href="./images/favicon.png" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="script/jquery.js" type="text/javascript"></script>
+		<script src="script/jquery-ui.js" type="text/javascript"></script>
+		<script src="script/menu.js" type="text/javascript"></script>
 		<script>
 			$(document).ready(function(){
 				function toggleSlidesB(){

@@ -84,7 +84,6 @@ p.breadtext.italic {
 
 */
 #main_wrapper#{
-	
 	min-width: 100%;
 	min-height: 100%;
 	padding: 0;
@@ -103,7 +102,6 @@ display: block;
 */
 #topbar_wrapper {
 	min-width: 100%;
-	max-width: 100%;
 	height: 121px;
 	background-color: #FFF;
 	padding: 0;
@@ -199,7 +197,6 @@ display: block;
 #menu_wrapper {
 	padding: 0;
 	min-width: 1200px;
-	max-width: 100%;
 	height: 60px;
 	background-color: #484848;
 }
@@ -217,6 +214,7 @@ display: block;
 	margin-left: auto;
 	margin-right: auto;
 	width: 1200px;
+	max-width: 100%;
 	height: 60px;
 }
 
@@ -259,7 +257,6 @@ display: block;
 	
 */
 #content {
-	
 	width: 1200px;
 	height: auto;
 	left: 0;
@@ -317,7 +314,7 @@ a.menu_object {
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 22px;
-	padding-bottom: 18px;
+	padding-bottom: 22px;
 	font-size: 16px;
 	font-family: Microsoft New Tai Lue, Corbel, Arial;
 	font-weight: normal;
@@ -327,10 +324,15 @@ a.menu_object {
 	text-decoration: none;
 }
 
-a.menu_object:hover {
+/*a.menu_object:hover {
 	color: #10bf31;
 	background-color: #5a5a5a;
 	border-bottom: 4px solid #5a5a5a;
+}*/
+
+a.menu_object_hover {
+	color: #10bf31;
+	background-color: #5a5a5a;
 }
 
 /* Active menu object */
