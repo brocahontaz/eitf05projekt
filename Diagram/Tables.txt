@@ -2,15 +2,12 @@ set foreign_key_checks = 0;
 
 drop table if exists Users;
 
-drop table if exists Theaters;
+drop table if exists Products;
 
-drop table if exists Performances;
+drop table if exists Categories;
 
-drop table if exists Movies;
-
-drop table if exists Reservations;
-
-
+drop table if exists ShoppingCarts
+;
 set foreign_key_checks = 1;
 
 
@@ -20,13 +17,19 @@ create table Users(
 
 userName char(15) NOT NULL PRIMARY KEY,
 
-password varchar(20) DEFAULT NULL,
+password varchar(60) DEFAULT NULL,
 
 address varchar(200) DEFAULT NULL,
 
 email varchar(50) DEFAULT NULL
 );
 
+
+
+create table Categories(
+
+categoryName varchar(20) NOT NULL PRIMARY KEY
+);
 
 
 create table Products(
@@ -42,20 +45,22 @@ FOREIGN KEY (categoryName)  references Categories(categoryName)
 
 
 
-create table Categories(
-
-categoryName varchar(20) NOT NULL PRIMARY KEY
-
-);
-
 create table ShoppingCarts(
 shoppingCartId integer auto_increment NOT NULL PRIMARY KEY,
 userName char(15) NOT NULL,
-productId integer auto_increment NOT NULL,
+productId integer NOT NULL,
 FOREIGN KEY (userName)  references Users(userName),
 FOREIGN KEY (productId)  references Products(productId)
-);
+);
 
+
+
+Insert into Categories VALUES
+
+('Fallen fruit'),
+('Vegetables'),
+('Fruit'),
+('Berries');
 
 
 Insert into Products VALUES
@@ -78,9 +83,3 @@ Insert into Products VALUES
 ('0','Pineapple', 2.45 , 100, 'Fruit');
 
 
-Insert into Categories VALUES
-
-('Fallen fruit'),
-('Vegetables'),
-('Fruit'),
-('Berries');
