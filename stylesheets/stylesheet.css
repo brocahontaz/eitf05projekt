@@ -656,6 +656,11 @@ display: block;
 	opacity: 0.84;
 }
 
+/* 100% OP */ 
+.100op{
+	opacity: 1.00;
+}
+
 /*
 
 		Frontpage header text
