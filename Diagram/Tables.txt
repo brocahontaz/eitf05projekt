@@ -35,20 +35,23 @@ productId integer auto_increment NOT NULL PRIMARY KEY
 ,
 productName varchar(20) NOT NULL,
 price float NOT NULL,
-numLeft int NOT NULL
+numLeft int NOT NULL,
+categoryName varchar(20) NOT NULL,
+FOREIGN KEY (categoryName)  references Categories(categoryName)
 );
 
 
 
 create table Categories(
 
-categoryName char(20) NOT NULL PRIMARY KEY,
-FOREIGN KEY (categoryName)  references Categories(categoryName)
+categoryName varchar(20) NOT NULL PRIMARY KEY
 );
 
 create table ShoppingCarts(
 shoppingCartId integer auto_increment NOT NULL PRIMARY KEY
 ,
+userName char(15) NOT NULL,
+productId integer auto_increment NOT NULL,
 FOREIGN KEY (userName)  references Users(userName),
 FOREIGN KEY (productId)  references Products(productId)
 )
@@ -58,22 +61,22 @@ FOREIGN KEY (productId)  references Products(productId)
 
 Insert into Products VALUES
 
-('0','Banana', 5.98 , 100),
+('0','Banana', 5.98 , 100, 'Fruit'),
 
-('0','Apple', 3.56 , 100),
+('0','Apple', 3.56 , 100, 'Fruit'),
 
-('0','Carrot', 6.00 , 100),
+('0','Carrot', 6.00 , 100, 'Vegetables'),
 
-('0','Onion', 1.45 , 100),
+('0','Onion', 1.45 , 100, 'Vegetables'),
 
-('0','Blueberry', 8.89 , 100),
+('0','Blueberry', 8.89 , 100, 'Berries'),
 
-('0','Strawberry', 9.23 , 100),
+('0','Strawberry', 9.23 , 100, 'Berries'),
 
-('0','Kiwi', 5.65 , 100),
+('0','Kiwi', 5.65 , 100, 'Fruit'),
 
-('0','Rotten plum', 0.54 , 100),
-('0','Pineapple', 2.45 , 100);
+('0','Rotten plum', 0.54 , 100, 'Fallen fruit'),
+('0','Pineapple', 2.45 , 100, 'Fruit');
 
 
 Insert into Categories VALUES
