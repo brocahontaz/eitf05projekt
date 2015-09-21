@@ -20,9 +20,9 @@ create table Users(
 
 userName char(15) NOT NULL PRIMARY KEY,
 
-password varchar(20) DEFAULT NULL,
+password varchar(60) DEFAULT NULL,
 
-adress varchar(200) DEFAULT NULL,
+address varchar(200) DEFAULT NULL,
 
 email varchar(50) DEFAULT NULL
 );
