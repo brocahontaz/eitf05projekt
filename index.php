@@ -7,6 +7,7 @@
 	$isLogedIn = isset($_SESSION['username']);
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
+		$userName = $user->getUserName();
 	}
 ?>
 <!DOCTYPE HTML>

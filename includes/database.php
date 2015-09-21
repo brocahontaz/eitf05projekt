@@ -168,7 +168,7 @@ class Database {
 	/**
 	*List all users in the system.
 	*
-	*@return all users with username.
+	*@return all users with username, in order.
 	*/
 	public function listUsers() {
 		$sql = "SELECT userName FROM users ORDER BY userName";
