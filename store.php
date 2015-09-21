@@ -133,7 +133,7 @@
 							<?php echo $promotedproduct['price']; ?> SEK
 						</div>
 						<div class="buy_now">
-							BUY NOW
+							<a href="product.php?id=<?php echo $promotedproduct['productId']; ?>" class="lgreen_to_dgreen">BUY NOW</a>
 						</div>
 					</div>
 					<?php } ?>
@@ -157,7 +157,7 @@
 							<?php echo $product['price']; ?> SEK
 						</div>
 						<div class="buy_now small">
-							BUY NOW
+							<a href="product.php?id=<?php echo $product['productId']; ?>" class="lgreen_to_dgreen">BUY NOW</a>
 						</div>
 					</div>
 					<?php } ?>
