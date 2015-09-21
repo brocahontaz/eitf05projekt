@@ -22,7 +22,7 @@ userName char(15) NOT NULL PRIMARY KEY,
 
 password varchar(20) DEFAULT NULL,
 
-adress varchar(200) DEFAULT NULL,
+address varchar(200) DEFAULT NULL,
 
 email varchar(50) DEFAULT NULL
 );
@@ -45,17 +45,16 @@ FOREIGN KEY (categoryName)  references Categories(categoryName)
 create table Categories(
 
 categoryName varchar(20) NOT NULL PRIMARY KEY
+
 );
 
 create table ShoppingCarts(
-shoppingCartId integer auto_increment NOT NULL PRIMARY KEY
-,
+shoppingCartId integer auto_increment NOT NULL PRIMARY KEY,
 userName char(15) NOT NULL,
 productId integer auto_increment NOT NULL,
 FOREIGN KEY (userName)  references Users(userName),
 FOREIGN KEY (productId)  references Products(productId)
-)
-;
+);
 
 
 

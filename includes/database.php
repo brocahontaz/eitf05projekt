@@ -175,7 +175,28 @@ class Database {
 		$result = $this->executeQuery($sql);
 		return $result;
 	}
-
+	
+	/**
+	*List 3 promoted products.
+	*
+	*@return the three promoted products.
+	**/
+	public function listPromotedProducts() {
+		$sql = "SELECT * FROM products LIMIT 3";
+		$result = $this->executeQuery($sql);
+		return $result;
+	}
+	
+	/**
+	*List all products.
+	*
+	*@return all products.
+	**/
+	public function listAllProducts() {
+		$sql = "SELECT * FROM products WHERE productId > 3";
+		$result = $this->executeQuery($sql);
+		return $result;
+	}
 }
 
 function echo_array($array){

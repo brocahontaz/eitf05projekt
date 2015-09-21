@@ -116,199 +116,51 @@
 					<div class="store_header_box">
 						PROMOTED
 					</div>
+					<?php $promoted = $db->listPromotedProducts(); ?>
+					<?php foreach($promoted as $promotedproduct) { ?>
 					<div class="promoted_store_object">
 						<div class="promoted_category">
-							FALL FRUIT
+							<?php echo $promotedproduct['categoryName']; ?>
 						</div>
-						<div class="promoted_picture" style="background-image:url('images/goldenolden.png')">
+						<div class="promoted_picture" style="background-image:url('images/products/<?php echo $promotedproduct['productName']; ?>.png')">
 							<img src="" class="image_promoted" />
 						</div>
 						<div class="promoted_name">
-							GOLDEN OLDEN
+							<?php echo $promotedproduct['productName']; ?>
 						</div>
 						<div class="promoted_info">
 							Anno 1961 <br/>
-							Two for 3 - 79.99$
+							<?php echo $promotedproduct['price']; ?> SEK
 						</div>
 						<div class="buy_now">
 							BUY NOW
 						</div>
 					</div>
-					<div class="promoted_store_object">
-						<div class="promoted_category">
-							USED
-						</div>
-						<div class="promoted_picture" style="background-image:url('images/kimskiwis.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="promoted_name">
-							KIM'S PEELED KIWIS
-						</div>
-						<div class="promoted_info">
-							Used but not abused <br/>
-							One bucket - 19.99$
-						</div>
-						<div class="buy_now">
-							BUY NOW
-						</div>
-					</div>
-					<div class="promoted_store_object">
-						<div class="promoted_category">
-							FRESH
-						</div>
-						<div class="promoted_picture" style="background-image:url('images/hammeredoranges.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="promoted_name">
-							HAMMERED ORANGES
-						</div>
-						<div class="promoted_info">
-							With a hammer, not alcohol <br/>
-							7$ a piece
-						</div>
-						<div class="buy_now">
-							BUY NOW
-						</div>
-					</div>
+					<?php } ?>
+					
 					<div class="store_header_box">
 						PRODUCTS
 					</div>
+					<?php $products = $db->listAllProducts(); ?>
+					<?php foreach($products as $product) { ?>
 					<div class="store_object">
 						<div class="product_category">
-							COLLECTIONS
+							<?php echo $product['categoryName']; ?>
 						</div>
-						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
+						<div class="product_picture" style="background-image:url('images/products/<?php echo $product['productName']; ?>.png')">
 							<img src="" class="image_promoted" />
 						</div>
 						<div class="product_name">
-							TFB SPECIAL
+							<?php echo $product['productName']; ?>
 						</div>
 						<div class="product_info">
-							Our finest - 199.99$
+							<?php echo $product['price']; ?> SEK
 						</div>
 						<div class="buy_now small">
 							BUY NOW
 						</div>
 					</div>
-					<div class="store_object">
-						<div class="product_category">
-							COLLECTIONS
-						</div>
-						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="product_name">
-							TFB SPECIAL
-						</div>
-						<div class="product_info">
-							Our finest - 199.99$
-						</div>
-						<div class="buy_now small">
-							BUY NOW
-						</div>
-					</div>
-					<div class="store_object">
-						<div class="product_category">
-							COLLECTIONS
-						</div>
-						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="product_name">
-							TFB SPECIAL
-						</div>
-						<div class="product_info">
-							Our finest - 199.99$
-						</div>
-						<div class="buy_now small">
-							BUY NOW
-						</div>
-					</div>
-					<div class="store_object">
-						<div class="product_category">
-							COLLECTIONS
-						</div>
-						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="product_name">
-							TFB SPECIAL
-						</div>
-						<div class="product_info">
-							Our finest - 199.99$
-						</div>
-						<div class="buy_now small">
-							BUY NOW
-						</div>
-					</div>
-					<div class="store_object">
-						<div class="product_category">
-							COLLECTIONS
-						</div>
-						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="product_name">
-							TFB SPECIAL
-						</div>
-						<div class="product_info">
-							Our finest - 199.99$
-						</div>
-						<div class="buy_now small">
-							BUY NOW
-						</div>
-					</div>
-					<div class="store_object">
-						<div class="product_category">
-							COLLECTIONS
-						</div>
-						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="product_name">
-							TFB SPECIAL
-						</div>
-						<div class="product_info">
-							Our finest - 199.99$
-						</div>
-						<div class="buy_now small">
-							BUY NOW
-						</div>
-					</div>
-					<div class="store_object">
-						<div class="product_category">
-							COLLECTIONS
-						</div>
-						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="product_name">
-							TFB SPECIAL
-						</div>
-						<div class="product_info">
-							Our finest - 199.99$
-						</div>
-						<div class="buy_now small">
-							BUY NOW
-						</div>
-					</div>
-					<div class="store_object">
-						<div class="product_category">
-							COLLECTIONS
-						</div>
-						<div class="product_picture" style="background-image:url('images/kimskiwis.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="product_name">
-							TFB SPECIAL
-						</div>
-						<div class="product_info">
-							Our finest - 199.99$
-						</div>
-						<div class="buy_now small">
-							BUY NOW
-						</div>
-					</div>
+					<?php } ?>
 					<?php } ?>
 				</div>
 			</div>
