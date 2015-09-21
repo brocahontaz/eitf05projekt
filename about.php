@@ -166,7 +166,7 @@
 						</span>
 						<p class="footer_text1">
 							<a href="" class="white_to_green">Amanda</a> <br />
-							<a href="" class="white_to_green">Johan</a> <br />
+							<a href="http://www.rooter.se" class="white_to_green" target="_blank">Johan</a> <br />
 							<a href="" class="white_to_green">Michael</a> <br />
 							<a href="" class="white_to_green">Therese</a>
 						</p>
