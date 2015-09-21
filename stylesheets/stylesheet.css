@@ -16,9 +16,83 @@
 body, html {
 	min-width: 100%;
 	min-height: 100%;
-	background: #FFFFFF;
+	background: #313131;
 	padding: 0;
 	margin: 0;
+}
+
+/*
+	
+		Headers
+	
+*/
+h1 {
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+}
+
+h2 {
+	font-family: Corbel, Arial;
+}
+
+h3 {
+	font-family: Corbel, Arial;
+}
+
+/*
+	
+	EXPANDERS
+	
+*/
+
+.sliderB{
+	display:none;
+}
+.togglerB:hover,
+.closeSliderB:hover{
+	cursor:pointer;
+}
+
+#slide_content {
+	width: 800px;
+	margin-top: -20px;
+	float: left;
+}
+
+/*
+	
+		Some paragraphs
+	
+*/
+p.breadtext {
+	font-size: 20px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 20px;
+	color: #000;
+	text-decoration: none;
+}
+
+p.breadtext.italic {
+	width: 800px;
+	font-style: italic;
+}
+
+/*
+
+		Main wrapper
+
+*/
+#main_wrapper#{
+	min-width: 100%;
+	min-height: 100%;
+	padding: 0;
+}
+
+.main_wrapper:after {
+clear: both;
+content: "";
+display: block;
 }
 
 /*
@@ -28,8 +102,7 @@ body, html {
 */
 #topbar_wrapper {
 	min-width: 100%;
-	max-width: 100%;
-	height: 150px;
+	height: 121px;
 	background-color: #FFF;
 	padding: 0;
 	margin: 0;
@@ -42,9 +115,8 @@ body, html {
 	
 */
 #topbar_content {
-	width: 1000px;
-	max-width: 90%;
-	height: 150px;
+	width: 1200px;
+	height: 121px;
 	margin-left: auto;
 	margin-right: auto;
 	top: 0;
@@ -56,31 +128,77 @@ body, html {
 	
 */
 #logo_box {
+	padding: 0;
+	height: 121px;
 	float: left;
-	margin-top: 20px;
-	font-size: 36px;
-	font-family: Corbel, Arial;
-	font-weight: normal;
-	font-style: none;
-	line-height: 36px;
-	color: #484848;
+	line-height: 0px;
 }
 
 /*
 	
-		Login/signin box
+	Account box
 	
 */
 
-#logsignin_box {
+#account_box {
 	float: right;
-	margin-top: 20px;
+	margin-top: 25px;
+}
+
+/* Account content */
+.account_content {
+	float: left;
+	margin-left: 20px;
+}
+
+/*
+	
+		Signed in as box
+	
+*/
+#signed_in_as_box {
+	margin-top: 10px;
+	margin-bottom: 20px;
 	font-size: 18px;
-	font-family: Corbel, Arial;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
 	font-weight: normal;
 	font-style: none;
 	line-height: 18px;
-	color: #484848;
+	color: #15c536;
+	text-decoration: none;
+}
+
+/* Black span */
+.black {
+	color: #000;
+}
+
+/*
+	
+	Sign in / register / account menu
+	
+*/
+#account_menu {
+	margin-top: 10px;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #15c536;
+	text-decoration: none;
+}
+
+/*
+	
+		Menu wrapper
+	
+*/
+#menu_wrapper {
+	padding: 0;
+	min-width: 1200px;
+	height: 60px;
+	background-color: #484848;
 }
 
 /*
@@ -90,11 +208,98 @@ body, html {
 */
 
 #menu_container {
-	margin-top: 50px;
+	padding: 0;
+	top: 0;
+	margin-top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1200px;
+	max-width: 100%;
+	height: 60px;
+}
+
+/*
+	
+		Menu object container
+	
+*/
+#menu_object_container {
+	height: 60px;
+	width: 1200px;
+	padding: 0;
+	margin-top: 0;
 	float: left;
-	width: 1000px;
-	max-width: 90%;
-	height: 50px;
+}
+
+/*
+	
+		Content wrapper
+	
+*/
+#content_wrapper {
+	float: left;
+	width: 100%;
+	min-width: 1200px;
+	height: auto;
+	margin-bottom: 10px;
+	background-color: #fff;
+}
+
+.content_wrapper:after {
+clear: both;
+content: "";
+display: block;
+}
+
+/*
+	
+		Content
+	
+*/
+#content {
+	width: 1200px;
+	height: auto;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	display: block;
+}
+
+.content:after {
+clear: both;
+content: "";
+display: block;
+}
+
+/*
+
+		Links
+
+*/
+
+/*White to green on hover*/
+a.white_to_green {
+	color: #FFF;
+	text-decoration: none;
+}
+
+a.white_to_green:hover {
+	color: #10bf31;
+	text-decoration: none;
+}
+
+/*Light green to dark green on hover*/
+a.lgreen_to_dgreen {
+	color: #15c536;
+	text-decoration: none;
+}
+
+a.lgreen_to_dgreen:hover {
+	color: #087b1d;
+	text-decoration: none;
 }
 
 /*
@@ -104,19 +309,724 @@ body, html {
 */
 a.menu_object {
 	float: left;
-	margin-right: 30px;
-	font-size: 25px;
-	font-family: Corbel, Arial;
+	margin-top: 0;
+	margin-left: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 22px;
+	padding-bottom: 22px;
+	font-size: 16px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
 	font-weight: normal;
 	font-style: none;
-	line-height: 25px;
-	color: #969696;
+	line-height: 16px;
+	color: #FFF;
 	text-decoration: none;
 }
 
-a.menu_object:hover {
-background-color: #FFF;
-border-bottom: 4px solid #1b5300;
+/*a.menu_object:hover {
+	color: #10bf31;
+	background-color: #5a5a5a;
+	border-bottom: 4px solid #5a5a5a;
+}*/
+
+a.menu_object_hover {
+	color: #10bf31;
+	background-color: #5a5a5a;
+}
+
+/* Active menu object */
+a.menu_object_active {
+	float: left;
+	margin-top: 0;
+	margin-left: 0px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 22px;
+	padding-bottom: 18px;
+	font-size: 16px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 16px;
+	color: #10bf31;
+	text-decoration: none;
+	border-bottom: 4px solid #10bf31;
+}
+
+/*
+	
+		Store menu
+	
+*/
+#store_menu {
+	float: left;
+	margin-top: -10px;
+	margin-bottom: 15px;
+	width: 1200px;
+	height: 20px;
+}
+
+/*
+	
+		Store menu object
+	
+*/
+a.store_menu_object {
+	float: left;
+	margin-top: 0;
+	margin-left: 0px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 20px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 20px;
+	color: #000;
+	text-decoration: none;
+}
+
+a.store_menu_object:hover {
+	color: #10bf31;
+}
+
+a.store_menu_object.active {
+	color: #10bf31;
+}
+
+/*
+	
+		Store header box
+	
+*/
+.store_header_box {
+	float: left;
+	width: 1130px;
+	background-color: #f0f0f0;
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-left: 35px;
+	font-size: 20px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 20px;
+	color: #000;
+	text-decoration: none;
+	margin-bottom: 10px;
+}
+
+.store_header_box:after {
+clear: both;
+content: "";
+display: block;
+}
+
+/*
+	
+		Promoted store object
+	
+*/
+.promoted_store_object {
+	float: left;
+	width: 380px;
+	height: 400px;
+	background-color: #fff;
+	border: 2px solid #f0f0f0;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+
+.promoted_store_object:after {
+clear: both;
+content: "";
+display: block;
+}
+
+.promoted_category {
+	margin-top: 15px;
+	width: 380px;
+	font-size: 17px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 17px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.promoted_picture {
+	margin-top: 15px;
+	width: 380px;
+	height: 210px;
+	font-size: 17px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 17px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	background-size: 100%;
+}
+
+.promoted_name {
+	margin-top: 15px;
+	width: 380px;
+	font-size: 20px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 20px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.promoted_info {
+	margin-top: 5px;
+	width: 380px;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #484848;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.buy_now {
+	margin-top: 25px;
+	width: 380px;
+	font-size: 26px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 26px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.buy_now.small {
+	width: 282px;
+	margin-top: 10px;
+}
+
+/*
+	
+		Store object
+	
+*/
+.store_object {
+	float: left;
+	width: 282px;
+	height: 300px;
+	background-color: #fff;
+	border: 2px solid #f0f0f0;
+	margin-right: 5px;
+	margin-bottom: 10px;
+}
+
+.product_category {
+	margin-top: 15px;
+	width: 282px;
+	font-size: 17px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 17px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.product_picture {
+	margin-top: 15px;
+	width: 282px;
+	height: 150px;
+	font-size: 17px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 17px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	background-size: 100%;
+}
+
+.product_name {
+	margin-top: 15px;
+	width: 282px;
+	font-size: 15px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 15px;
+	color: #1eae39;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.product_info {
+	margin-top: 5px;
+	width: 282px;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #484848;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/*
+	
+		Frontpage big pic
+	
+*/
+#frontpage_big_pic {
+	min-width: 1200px;
+	width: 100%;
+	/*min-height: 551px;*/
+	padding: 0;
+	background-image: url("../images/frontpagebigpic.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/*
+	
+		Frontpage big pic container
+	
+*/
+#frontpage_big_pic_container {
+	width: 1200px;
+	height: 551px;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+/*
+	
+		Frontpage big pic content 
+	
+*/
+#frontpage_big_pic_content {
+	float: right;
+}
+
+/*
+
+		Frontpage header wrapper
+
+*/
+#frontpage_header_wrapper {
+	
+}
+
+/*
+	
+		Frontpage header box
+	
+*/
+#frontpage_header_box {
+	margin-top: 65px;
+	padding-top: 25px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 12px;
+	background-color: #15c536;
+	opacity: 0.84;
+}
+
+/* 100% OP */ 
+.100op{
+	opacity: 1.00;
+}
+
+/*
+
+		Frontpage header text
+
+*/
+#frontpage_header_text {
+	margin-top: 20px;
+	margin-left: 5px;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+
+		Frontpage header button
+
+*/
+#frontpage_header_button {
+	margin-top: 20px;
+	float: right;
+	background-color: #15c536;
+	border-radius: 15px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	opacity: 0.84;
+	font-size: 22px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: bold;
+	font-style: none;
+	line-height: 22px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+.header1 {
+	font-size: 30px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 30px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+.header2 {
+	font-size: 60px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 60px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Color box wrapper
+	
+*/
+#color_box_wrapper {
+	width: 100%;
+	min-width: 1600px;
+	padding: 0;
+}
+
+/*
+	
+		Color box left
+	
+*/
+#color_box_left  {
+	float: left;
+	width: 50%;
+	min-width: 800px;
+	height: 380px;
+	background-color: #15c536;
+}
+
+/*
+	
+		Color box right
+	
+*/
+#color_box_right {
+	float: left;
+	width: 50%;
+	min-width: 800px;
+	height: 380px;
+	background-color: #087b1d;
+}
+
+/*
+	
+		Color box content
+	
+*/
+.color_box_content {
+	width: 800px;
+	height: 380px;
+}
+
+.color_box_content.left {
+	float: right;
+}
+
+/*
+	
+		Color box image
+	
+*/
+.color_box_image {
+	float: left;
+	width: 230px;
+	height: 380px;
+}
+
+/* Image */
+img.c_b_image {
+	width: 230px;
+	border: 3px solid #FFF;
+	border-radius: 115px;
+	margin-top: 75px;
+}
+/*
+	
+		Color box text container
+	
+*/
+.color_box_text_container {
+	float: left;
+	width: 500px;
+	margin-top: 50px;
+	margin-left: 30px;
+}
+
+/*
+	
+		Color box header1
+	
+*/
+p.color_box_header1 {
+	font-size: 30px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 1px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Color box header1
+	
+*/
+p.color_box_header2 {
+	font-size: 40px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 1px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+		
+		
+	
+*/
+
+p.color_box_text {
+	font-size: 24px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 30px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Color box button
+	
+*/
+.color_box_button {
+	float: right;
+	background-color: #35573b;
+	border-radius: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	opacity: 0.84;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Footer wrapper
+	
+*/
+#footer_wrapper {
+	width: 100%;
+	height: auto;
+}
+
+/*
+
+		Footer content
+
+*/
+#footer_content {
+	width: 1400px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #313131;
+}
+
+/*
+
+		Footer object
+
+*/
+.footer_object {
+	float: left;
+	margin-top: 40px;
+	margin-right: 90px;
+	
+}
+
+/*
+	
+		Footer header
+	
+*/
+
+.footer_header1 {
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/* Span for green text */
+.green {
+	color: #15c536;
+}
+
+/*
+	
+		Footer text paragraph
+	
+*/
+p.footer_text1 {
+	margin-top: 20px;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Copyright paragraph
+	
+*/
+p.copyright {
+	margin-top: 10px;
+	font-size: 16px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 16px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Terms paragraph
+	
+*/
+p.terms {
+	margin-top: 10px;
+	font-size: 14px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 14px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Div for get started
+	
+*/
+#get_started {
+	float: right;
+	width: 317px;
+}
+
+/*
+	
+		Learn more container
+	
+*/
+
+#learn_more {
+	float: left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Get started button
+	
+*/
+#get_started_button {
+	float: left;
+	background-color: #15c536;
+	border-radius: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	opacity: 0.84;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #FFF;
+	text-decoration: none;
 }
 
 /*
@@ -125,9 +1035,27 @@ border-bottom: 4px solid #1b5300;
 
 */
 #frontpage_color_box {
-	width: 100%;
+	width: 1200px;
 	height: 400px;
-	background-color: #1b5300;
+	border: 2px solid #FFF;
+	border-radius: 20px;
+	background-color: #e5ffdc;
 	padding: 0;
-	margin: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*
+	
+	Fruit image
+	
+*/
+#fruit_image {
+	width: 1200px;
+	height: 400px;
+	border: 2px solid #FFF;
+	border-radius: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url("../images/fruit2.png");
 }
