@@ -193,7 +193,7 @@ class Database {
 	*@return all products.
 	**/
 	public function listAllProducts() {
-		$sql = "SELECT * FROM products WHERE productId > 3";
+		$sql = "SELECT * FROM products WHERE productId > 3 ORDER BY productName";
 		$result = $this->executeQuery($sql);
 		return $result;
 	}
