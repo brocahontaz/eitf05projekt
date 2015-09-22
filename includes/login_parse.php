@@ -13,12 +13,13 @@ if(!empty($_POST)){
 	
 	if (empty($user) || empty($userPassword)) {
 		$error = 'empty';
-		header("Location: ../index.php?" + $error);
-	} else{
-		if(!($db->checkPassword($user, $userPassword))) {
-			$error = 'error';
-			header("Location: ../index.php?" + $error);
-		}
+		header("Location: ../index.php");
+	} else if(!$db->userExists($user)) {
+		$error = 'nonexistent';
+		header("Location: ../index.php");
+	} else if(!($db->checkPassword($user, $userPassword))) {
+		$error = 'error';
+		header("Location: ../index.php");
 	}
 	
 	if(!$error){
