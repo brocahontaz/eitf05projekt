@@ -107,7 +107,7 @@
 					<a href="store.php?browsecategory" class="store_menu_object active">
 					BROWSING BY CATEGORY
 					<?php } else { ?>
-					<a href="store.php?browsecategory" class="store_menu_object">
+					<a href="store.php?browsecategory" class="store_menu_object" id="cat">
 					BROWSE BY CATEGORY
 					<?php } ?>
 					</a>
@@ -120,13 +120,13 @@
 					<?php foreach($promoted as $promotedproduct) { ?>
 					<div class="promoted_store_object">
 						<div class="promoted_category">
-							<?php echo $promotedproduct['categoryName']; ?>
+							<?php echo strtoupper($promotedproduct['categoryName']); ?>
 						</div>
 						<div class="promoted_picture" style="background-image:url('images/products/<?php echo $promotedproduct['productName']; ?>.png')">
 							<img src="" class="image_promoted" />
 						</div>
 						<div class="promoted_name">
-							<?php echo $promotedproduct['productName']; ?>
+							<?php echo strtoupper($promotedproduct['productName']); ?>
 						</div>
 						<div class="promoted_info">
 							Anno 1961 <br/>
@@ -145,13 +145,13 @@
 					<?php foreach($products as $product) { ?>
 					<div class="store_object">
 						<div class="product_category">
-							<?php echo $product['categoryName']; ?>
+							<?php echo strtoupper($product['categoryName']); ?>
 						</div>
 						<div class="product_picture" style="background-image:url('images/products/<?php echo $product['productName']; ?>.png')">
 							<img src="" class="image_promoted" />
 						</div>
 						<div class="product_name">
-							<?php echo $product['productName']; ?>
+							<?php echo strtoupper($product['productName']); ?>
 						</div>
 						<div class="product_info">
 							<?php echo $product['price']; ?> SEK
