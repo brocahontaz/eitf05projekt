@@ -65,21 +65,37 @@ Insert into Categories VALUES
 
 Insert into Products VALUES
 
-('0','Banana', 5.98 , 100, 'Fruit'),
+('0', 'Banana', 5.98, 100, 'Fruit'),
 
-('0','Apple', 3.56 , 100, 'Fruit'),
+('0', 'Apple', 3.56, 100, 'Fruit'),
 
-('0','Carrot', 6.00 , 100, 'Vegetables'),
+('0', 'Carrot', 6, 100, 'Vegetables'),
 
-('0','Onion', 1.45 , 100, 'Vegetables'),
+('0', 'Onion', 1.45, 100, 'Vegetables'),
 
-('0','Blueberry', 8.89 , 100, 'Berries'),
+('0', 'Blueberry', 8.89, 100, 'Berries'),
 
-('0','Strawberry', 9.23 , 100, 'Berries'),
+('0', 'Strawberry', 9.23, 100, 'Berries'),
 
-('0','Kiwi', 5.65 , 100, 'Fruit'),
+('0', 'Kiwi', 5.65, 100, 'Fruit'),
 
-('0','Rotten plum', 0.54 , 100, 'Fallen fruit'),
-('0','Pineapple', 2.45 , 100, 'Fruit');
+('0', 'Rotten plum', 0.54, 100, 'Fallen fruit'),
 
+('0', 'Pineapple', 2.45, 100, 'Fruit'),
+
+('0', 'Pears', 12, 12, 'Fruit'),
+
+('0', 'Lingonberries', 50, 3, 'Berries'),
+
+('0', 'Cucumber', 30, 10, 'Vegetables'),
+
+('0', 'Potato', 15, 15, 'Vegetables'),
+
+('0', 'Raspberry', 45, 45, 'Berries'),
+
+('0', 'Coconut', 5, 99, 'Fallen fruit'),
+
+('0', 'Assorted beans', 90, 90, 'Vegetables'),
+
+('0', 'Iceberg salad', 11, 11, 'Vegetables');
 

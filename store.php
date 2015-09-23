@@ -5,6 +5,8 @@
 	require_once("includes/setup.php");
 	$db = new Database($host, $userName, $password, $database);
 	$isLogedIn = isset($_SESSION['username']);
+	if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+	$num_per_page = 12;
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
 	}
@@ -140,8 +142,18 @@
 					
 					<div class="store_header_box">
 						PRODUCTS
+						<div id="paginate">
+							<?php
+								$total_pages = $db->getPages($num_per_page);
+								echo "<a href='store.php?browseall&page=1' class='lgreen_to_dgreen'>".'|<'."</a> ";
+								for ($i=1; $i<=$total_pages; $i++) { 
+								echo "<a href='store.php?browseall&page=".$i."' class='lgreen_to_dgreen'>".$i."</a> "; 
+								}; 
+								echo "<a href='store.php?browseall&page=$total_pages' class='lgreen_to_dgreen'>".'>|'."</a> ";
+							?>
+						</div>
 					</div>
-					<?php $products = $db->listAllProducts(); ?>
+					<?php $products = $db->getProductsPaginate($page, $num_per_page); ?>
 					<?php foreach($products as $product) { ?>
 					<div class="store_object">
 						<div class="product_category">

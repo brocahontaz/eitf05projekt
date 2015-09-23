@@ -197,6 +197,26 @@ class Database {
 		$result = $this->executeQuery($sql);
 		return $result;
 	}
+	
+	/**
+	*Get products, paginated.
+	*
+	*@return all products for certain page.
+	**/
+	public function getProductsPaginate($page, $num_per_page) {
+		$start_from = ($page-1) * $num_per_page;
+		$sql = "SELECT * FROM products WHERE productId > 3 LIMIT $start_from, $num_per_page";
+		$result = $this->executeQuery($sql);
+		return $result;
+	}
+	
+	public function getPages($num_per_page) {
+		$sql = "SELECT productId FROM products WHERE productId > 3";
+		$result = $this->executeQuery($sql);
+		$total_records = count($result);
+		$total_pages = ceil($total_records / $num_per_page);
+		return $total_pages;
+	}
 }
 
 function echo_array($array){
