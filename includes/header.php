@@ -72,26 +72,3 @@
 					</div>
 				</div>
 			</div>
-			<div id="menu_wrapper">
-				<div id="menu_container">
-					<!--<div id="menu_object_container">-->
-						<a href="index.php" class="menu_object_active">
-							HOME
-						</a>
-						<a href="store.php?browseall" class="menu_object">
-							STORE
-						</a>
-						<a href="about.php" class="menu_object">
-							ABOUT
-						</a>
-						<a href="help.php" class="menu_object">
-							HELP
-						</a>
-						<?php if($isLogedIn) { ?>
-						<a href="includes/logout_parse.php" class="menu_object" style="float: right;">
-							SIGN OUT
-						</a>
-						<?php } ?>
-					<!--</div>-->
-				</div>
-			</div>
