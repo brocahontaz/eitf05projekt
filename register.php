@@ -1,15 +1,44 @@
 <?php 
-	require_once("includes/database.php");
-	require_once("includes/mysql_connect_data.php");
-	require_once("includes/user.php");
-	require_once("includes/setup.php");
-	$db = new Database($host, $userName, $password, $database);
-	$isLogedIn = isset($_SESSION['username']);
-	if ($isLogedIn) {
-		$user = $_SESSION['user'];
-		header("Location: index.php");
+require_once("includes/database.php");
+require_once("includes/mysql_connect_data.php");
+require_once("includes/user.php");
+require_once("includes/setup.php");
+$db = new Database($host, $userName, $password, $database);
+$isLogedIn = isset($_SESSION['username']);
+if ($isLogedIn) {
+	$user = $_SESSION['user'];
+	header("Location: index.php");
+}
+if(isset($_POST['submit'])){
+	$user = str_replace(' ', '_', $_POST['tfb_name']);
+	$tfbpass1 = $_POST['tfb_password1'];
+	$tfbpass2 = $_POST['tfb_password2'];
+	$tfbemail1 = $_POST['tfb_email1'];
+	$tfbemail2 = $_POST['tfb_email2'];
+	$address = $_POST['address'];
+	if(empty($user) || empty($tfbpass1) || empty($tfbpass2) || empty($tfbemail1) || empty($tfbemail2) || empty($address)) {
+		$feedback = "All fields must be filled.";
+	} else{
+		if($tfbemail1 != $tfbemail2)  {
+			$feedback = "The email was not correctly repeated.";
+		} else{
+			$pattern = '/^(?=.*\d)(?=.*?[a-zA-Z])(?=.*?[\W_]).{10,}$/';
+			if(preg_match($pattern, $tfbpass1) != 1){
+				$feedback = "The password does not meet the requirements.";
+			} else{
+				if($tfbpass1 != $tfbpass2)  {
+					$feedback = "The password was not correctly repeated.";
+				} else{
+					$password = password_hash($tfbpass1, PASSWORD_DEFAULT);
+					$db->createUser($user, $password, $address, $address, $email);
+					header("Location: register.php?success");
+				}
+			}
+		}
 	}
+}
 ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -98,42 +127,18 @@
 				<p class="breadtext">
 					<h1>Fill in your credentials to create Your TFB account today.</h1>
 				</p>
-<?php
-	if(isset($_GET['empty'])) {
-?>
-					<p class ="breadtext" style="color: red";>
-						Some field/s were left empty. Please try again.
-					</p>
-<?php
-	} else if(isset($_GET['falsepass'])) {
-?>
-					<p class ="breadtext" style="color: red";>
-						The passwords does not correspond. Try again, please.
-					</p>
-<?php
-	} else if(isset($_GET['falsemail'])) {
-?>
-					<p class ="breadtext" style="color: red";>
-						The emails does not correspond. Try again, please.
-					</p>
-<?php
-	} else if(isset($_GET['success'])) {
-?>
-					<p class ="breadtext" style="color: green";>
-						The account were successfully created! :) Login to start using it.
-					</p>
-<?php
-	}
-?>				
-					<form name="createuser "id="createuser" method="POST" action="includes/createuser_parse.php">
-						<input type="text" class="input_field_login" name="tfb_name" placeholder="USERNAME"/><br /><br />
-						<input type="text" class="input_field_login" name="address" placeholder="ADDRESS"/><br /><br />
-						<input type="text" class="input_field_login" name="tfb_email1" placeholder="EMAIL"/><br /><br />
-						<input type="text" class="input_field_login" name="tfb_email2" placeholder="REPEAT EMAIL"/><br /><br />
-						<input type="password" class="input_field_login" name="tfb_password1" placeholder="PASSWORD"/><br /><br />
-						<input type="password" class="input_field_login" name="tfb_password2" placeholder="REPEAT PASSWORD"/><br /><br />
+				<?php if(!empty($feedback)){ ?><p class ="breadtext" style="color: red";><?php echo $feedback; ?></p><?php } ?>			
+					<form name="createuser "id="createuser" method="POST" action="register.php">
+						<input type="text" class="input_field_login" name="tfb_name" placeholder="USERNAME" value="<?php if(isset($feedback)){ echo $user; } ?>" /><br /><br />
+						<input type="text" class="input_field_login" name="address" placeholder="ADDRESS" value="<?php if(isset($feedback)){ echo $address; } ?>" /><br /><br />
+						<input type="text" class="input_field_login" name="tfb_email1" placeholder="EMAIL" value="<?php if(isset($feedback)){ echo $tfbemail1; } ?>"/><br /><br />
+						<input type="text" class="input_field_login" name="tfb_email2" placeholder="REPEAT EMAIL" value="<?php if(isset($feedback)){ echo $tfbemail2; } ?>"/><br /><br />
+						<p>The password must be at least 10 characters long, contain one special character and one number.</p>
+						<input type="password" class="input_field_login" name="tfb_password1" placeholder="PASSWORD" value="<?php if(isset($feedback)){ echo $tfbpass1; } ?>"/><br /><br />
+						<input type="password" class="input_field_login" name="tfb_password2" placeholder="REPEAT PASSWORD" value="<?php if(isset($feedback)){ echo $tfbpass2; } ?>"/><br /><br />
 						<input type="submit" class="submit_button_login" name="submit" value="CREATE ACCOUNT" />
 					</form>
+					<?php if(isset($_GET['success'])){ ?><p class ="breadtext" style="color: green";>Account succesfully created!</p><?php } ?>
 				</div>
 			</div>
 			<div id="footer_wrapper">
