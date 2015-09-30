@@ -95,6 +95,9 @@
 					<!--</div>-->
 				</div>
 			</div>
+			
+			
+
 			<div id="frontpage_big_pic">
 				<div id="frontpage_big_pic_container">
 					<div id="frontpage_big_pic_content">
@@ -174,6 +177,10 @@
 					</div>
 				</div>
 			</div>
+			
+
+			
+			
 			<div id="footer_wrapper">
 				<div id="footer_content">
 					<div class="footer_object">
