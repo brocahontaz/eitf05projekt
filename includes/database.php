@@ -255,7 +255,9 @@ class Database {
 	}
 	
 	public function getSum($userName) {
-		$sql ="SELECT SUM"
+		$sql ="SELECT SUM(price) FROM productsforuser NATURAL JOIN products WHERE userName = ?";
+		$result = $this->executeQuery($sql, array($userName));
+		return $result;
 	}
 	
 }

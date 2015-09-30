@@ -110,6 +110,10 @@
 						SHOPPING CART
 					</div>
 					<?php $products = $db->getCart($username); ?>
+					<div class="product">
+						<div class="product name"><b>Produkt</b></div>
+						<div class="product name"><b>Pris</b></div>
+					</div>
 					<?php foreach($products as $product) { ?>
 						<?php $productinfo = $db->getProductInfo($product['productId']); ?>
 						<div class="product">
@@ -123,7 +127,17 @@
 							<?php } ?>
 						</div>
 					<?php } ?>
-					
+					<div class="product">
+						<div class="product name"><b></b></div>
+						<div class="product name"><b>Total summa</b></div>
+					</div>
+					<?php $pricesum = $db->getSum($username); ?>
+					<?php foreach($pricesum as $psum) { ?>
+					<div class="product">
+						<div class="product name"><b></b></div>
+						<div class="product price"><?php echo round($psum[0]); ?> SEK</div>
+					</div>
+					<?php } ?>
 				</div>
 			</div>
 			<div id="footer_wrapper">
