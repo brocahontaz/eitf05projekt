@@ -6,17 +6,18 @@
 	$db = new Database($host, $userName, $password, $database);
 	$isLogedIn = isset($_SESSION['username']);
 	if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+	if (isset($_GET["user"])) { $getuser  = $_GET["user"]; } else { header("location: index.php"); }; 
 	$num_per_page = 12;
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
+		$username = $user->getUserName();
+		if(!($getuser == $user->getUserName())) {
+			header("location: shoppingcart.php?user=$username");
+		}
+	} else {
+		header("location: index.php");
 	}
 	
-	if(isset($_GET["addid"])) {
-		$productId = $_GET["addid"];
-		$pagecart = $_GET["page"];
-		$db->addProductToCart($user->getUserName(), $productId);
-		header("Location: store.php?page=$page");
-	}
 	
 ?>
 <!DOCTYPE HTML>
@@ -104,84 +105,25 @@
 			</div>
 			<div id="content_wrapper">
 				<div id="content">
-					<div id="store_menu">
-					<?php if(isset($_GET['browseall']) || !isset($_GET['browsecategory'])) { ?>
-					<a href="store.php?browseall" class="store_menu_object active">
-					BROWSING ALL
-					<?php } else { ?>
-					<a href="store.php?browseall" class="store_menu_object">
-					BROWSE ALL
-					<?php } ?>
-					</a>
-					<?php if(isset($_GET['browsecategory'])) { ?>
-					<a href="store.php?browsecategory" class="store_menu_object active">
-					BROWSING BY CATEGORY
-					<?php } else { ?>
-					<a href="store.php?browsecategory" class="store_menu_object" id="cat">
-					BROWSE BY CATEGORY
-					<?php } ?>
-					</a>
-					</div>
-					<?php if(isset($_GET['browseall']) || !isset($_GET['browsecategory'])) { ?>
+	
 					<div class="store_header_box">
-						PROMOTED
+						SHOPPING CART
 					</div>
-					<?php $promoted = $db->listPromotedProducts(); ?>
-					<?php foreach($promoted as $promotedproduct) { ?>
-					<div class="promoted_store_object">
-						<div class="promoted_category">
-							<?php echo strtoupper($promotedproduct['categoryName']); ?>
+					<?php $products = $db->getCart($username); ?>
+					<?php foreach($products as $product) { ?>
+						<?php $productinfo = $db->getProductInfo($product['productId']); ?>
+						<div class="product">
+							<?php foreach($productinfo as $pinfo) { ?>	
+							
+							
+								<div class="product name"><?php echo $pinfo['productName']; ?></div>
+								<div class="product price"><?php echo $pinfo['price']; ?> SEK</div>
+								
+								
+							<?php } ?>
 						</div>
-						<div class="promoted_picture" style="background-image:url('images/products/<?php echo $promotedproduct['productName']; ?>.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="promoted_name">
-							<?php echo strtoupper($promotedproduct['productName']); ?>
-						</div>
-						<div class="promoted_info">
-							Anno 1961 <br/>
-							<?php echo $promotedproduct['price']; ?> SEK
-						</div>
-						<div class="buy_now">
-							<a href="store.php?page=<?php echo $page ?>&addid=<?php echo $promotedproduct['productId']; ?>" class="lgreen_to_dgreen">BUY NOW</a>
-						</div>
-					</div>
 					<?php } ?>
 					
-					<div class="store_header_box">
-						PRODUCTS
-						<div id="paginate">
-							<?php
-								$total_pages = $db->getPages($num_per_page);
-								echo "<a href='store.php?browseall&page=1' class='lgreen_to_dgreen'>".'|<'."</a> ";
-								for ($i=1; $i<=$total_pages; $i++) { 
-								echo "<a href='store.php?browseall&page=".$i."' class='lgreen_to_dgreen'>".$i."</a> "; 
-								}; 
-								echo "<a href='store.php?browseall&page=$total_pages' class='lgreen_to_dgreen'>".'>|'."</a> ";
-							?>
-						</div>
-					</div>
-					<?php $products = $db->getProductsPaginate($page, $num_per_page); ?>
-					<?php foreach($products as $product) { ?>
-					<div class="store_object">
-						<div class="product_category">
-							<?php echo strtoupper($product['categoryName']); ?>
-						</div>
-						<div class="product_picture" style="background-image:url('images/products/<?php echo $product['productName']; ?>.png')">
-							<img src="" class="image_promoted" />
-						</div>
-						<div class="product_name">
-							<?php echo strtoupper($product['productName']); ?>
-						</div>
-						<div class="product_info">
-							<?php echo $product['price']; ?> SEK
-						</div>
-						<div class="buy_now small">
-							<a href="store.php?page=<?php echo $page ?>&addid=<?php echo $product['productId']; ?>" class="lgreen_to_dgreen">BUY NOW</a>
-						</div>
-					</div>
-					<?php } ?>
-					<?php } ?>
 				</div>
 			</div>
 			<div id="footer_wrapper">

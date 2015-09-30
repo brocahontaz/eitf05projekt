@@ -210,6 +210,11 @@ class Database {
 		return $result;
 	}
 	
+	/**
+	*Get total number of pages needed for pagination.
+	*
+	*@return totalt number of pages.
+	**/
 	public function getPages($num_per_page) {
 		$sql = "SELECT productId FROM products WHERE productId > 3";
 		$result = $this->executeQuery($sql);
@@ -217,6 +222,42 @@ class Database {
 		$total_pages = ceil($total_records / $num_per_page);
 		return $total_pages;
 	}
+	
+	/**
+	*Add product to shopping cart for user.
+	**/
+	public function addProductToCart($userName, $productId) {
+		$sql = "INSERT INTO productsforuser(userName, productId) VALUES (?, ?)";
+		$result = $this->executeUpdate($sql, array($userName, $productId));
+	}
+	
+	/**
+	*Get all products from active shopping cart for user.
+	*
+	*
+	*@return all products.
+	**/
+	public function getCart($userName) {
+		$sql = "SELECT * FROM productsforuser WHERE userName = ?";
+		$result = $this->executeQuery($sql, array($userName));
+		return $result;
+	}
+	
+	/**
+	*Get product info from id.
+	*
+	*@return the product info.
+	**/
+	public function getProductInfo($id) {
+		$sql = "SELECT * FROM products WHERE productId = ?";
+		$result = $this->executeQuery($sql, array($id));
+		return $result;
+	}
+	
+	public function getSum($userName) {
+		$sql ="SELECT SUM"
+	}
+	
 }
 
 function echo_array($array){
