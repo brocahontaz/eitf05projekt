@@ -45,8 +45,8 @@ FOREIGN KEY (categoryName)  references Categories(categoryName)
 
 
 
-create table ShoppingCarts(
-shoppingCartId integer auto_increment NOT NULL PRIMARY KEY,
+create table ProductsForUser(
+Id integer auto_increment NOT NULL PRIMARY KEY,
 userName char(15) NOT NULL,
 productId integer NOT NULL,
 FOREIGN KEY (userName)  references Users(userName),
