@@ -24,6 +24,7 @@
 		<script src="script/jquery.js" type="text/javascript"></script>
 		<script src="script/jquery-ui.js" type="text/javascript"></script>
 		<script src="script/menu.js" type="text/javascript"></script>
+		<script src="script/about.js" type="text/javascript"></script>
 	</head>
 	<body>
 		<div id="main_wrapper">
