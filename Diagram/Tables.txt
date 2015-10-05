@@ -15,7 +15,7 @@ set foreign_key_checks = 1;
 
 create table Users(
 
-userName char(15) NOT NULL PRIMARY KEY,
+userName varchar(20) NOT NULL PRIMARY KEY,
 
 password varchar(60) DEFAULT NULL,
 
@@ -45,9 +45,9 @@ FOREIGN KEY (categoryName)  references Categories(categoryName)
 
 
 
-create table ProductsForUser(
-Id integer auto_increment NOT NULL PRIMARY KEY,
-userName char(15) NOT NULL,
+create table productsForUser(
+shoppingCartId integer auto_increment NOT NULL PRIMARY KEY,
+userName varchar(20) NOT NULL,
 productId integer NOT NULL,
 FOREIGN KEY (userName)  references Users(userName),
 FOREIGN KEY (productId)  references Products(productId)

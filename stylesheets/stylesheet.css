@@ -212,6 +212,10 @@ display: block;
 	text-decoration: none;
 }
 
+.product.pay {
+	padding-bottom: 20px;
+}
+
 /*
 	
 	Sign in / register / account menu
@@ -1052,6 +1056,29 @@ p.terms {
 */
 #get_started_button {
 	float: left;
+	background-color: #15c536;
+	border-radius: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 25px;
+	padding-right: 25px;
+	opacity: 0.84;
+	font-size: 18px;
+	font-family: Microsoft New Tai Lue, Corbel, Arial;
+	font-weight: normal;
+	font-style: none;
+	line-height: 18px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/*
+	
+		Get started button
+	
+*/
+#pay_button {
+	float: right;
 	background-color: #15c536;
 	border-radius: 10px;
 	padding-top: 20px;
