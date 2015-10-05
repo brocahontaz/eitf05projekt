@@ -10,6 +10,9 @@
 	if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
 	$num_per_page = 12;
 	if(isset($_GET["addid"])) {
+		if(!$isLogedIn) {
+			header("Location: store.php");
+		}
 		$productId = $_GET["addid"];
 		$pagecart = $_GET["page"];
 		$db->addProductToCart($user->getUserName(), $productId);
@@ -84,7 +87,9 @@
 							<?php echo $promotedproduct['price']; ?> SEK
 						</div>
 						<div class="buy_now">
+							<?php if($isLogedIn) { ?>
 							<a href="store.php?page=<?php echo $page ?>&addid=<?php echo $promotedproduct['productId']; ?>" class="lgreen_to_dgreen">BUY NOW</a>
+							<?php } else { echo "Log in to buy"; } ?>
 						</div>
 					</div>
 					<?php } ?>
@@ -118,7 +123,9 @@
 							<?php echo $product['price']; ?> SEK
 						</div>
 						<div class="buy_now small">
+							<?php if($isLogedIn) { ?>
 							<a href="store.php?page=<?php echo $page ?>&addid=<?php echo $product['productId']; ?>" class="lgreen_to_dgreen">BUY NOW</a>
+							<?php } else { echo "Log in to buy"; } ?>
 						</div>
 					</div>
 					<?php } ?>
