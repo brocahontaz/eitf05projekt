@@ -133,7 +133,7 @@ if(isset($_POST['submit'])){
 						<input type="text" class="input_field_login" name="address" placeholder="ADDRESS" value="<?php if(isset($feedback)){ echo $address; } ?>" /><br /><br />
 						<input type="text" class="input_field_login" name="tfb_email1" placeholder="EMAIL" value="<?php if(isset($feedback)){ echo $tfbemail1; } ?>"/><br /><br />
 						<input type="text" class="input_field_login" name="tfb_email2" placeholder="REPEAT EMAIL" value="<?php if(isset($feedback)){ echo $tfbemail2; } ?>"/><br /><br />
-						<p>The password must be at least 10 characters long, contain one special character and one number.</p>
+						<p class="breadtext">The password must be at least 10 characters long, contain one special character and one number.</p>
 						<input type="password" class="input_field_login" name="tfb_password1" placeholder="PASSWORD" value="<?php if(isset($feedback)){ echo $tfbpass1; } ?>"/><br /><br />
 						<input type="password" class="input_field_login" name="tfb_password2" placeholder="REPEAT PASSWORD" value="<?php if(isset($feedback)){ echo $tfbpass2; } ?>"/><br /><br />
 						<input type="submit" class="submit_button_login" name="submit" value="CREATE ACCOUNT" />
