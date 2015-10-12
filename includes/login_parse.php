@@ -8,18 +8,24 @@ if(!empty($_POST)){
 
 	$db = new Database($host, $userName, $password, $database);
 	
-	$user = str_replace(' ', '_', $_POST['tfb_name']);
-	$userPassword = $_POST['tfb_password'];
+	$user = str_replace(' ', '_', sanitize($_POST['tfb_name']));
+	$userPassword = sanitize($_POST['tfb_password']);
 	
 	if (empty($user) || empty($userPassword)) {
-		$error = 'empty';
-		header("Location: ../index.php");
+		$error = true;
+		header("Location: ../index.php?login_error=empty");
+	} else if(!validateText($user, 2, 20)) {
+		$error = true;
+		header("Location: ../index.php?login_error=user");
+	} else if(!validateText($userPassword, 10, 50)) {
+		$error = true;
+		header("Location: ../index.php?login_error=pw");
 	} else if(!$db->userExists($user)) {
-		$error = 'nonexistent';
-		header("Location: ../index.php");
+		$error = true;
+		header("Location: ../index.php?login_error=nonexistent");
 	} else if(!($db->checkPassword($user, $userPassword))) {
-		$error = 'error';
-		header("Location: ../index.php");
+		$error = true;
+		header("Location: ../index.php?login_error=wrongpw");
 	}
 	
 	if(!$error){

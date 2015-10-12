@@ -11,28 +11,33 @@ if ($isLogedIn) {
 }
 
 if(isset($_POST['submit'])){
-	$user = str_replace(' ', '_', strip_tags(trim($_POST['tfb_name'])));
-	$tfbpass1 = strip_tags(trim($_POST['tfb_password1']));
-	$tfbpass2 =  strip_tags(trim($_POST['tfb_password2']));
-	$tfbemail1 =  strip_tags(trim($_POST['tfb_email1']));
-	$tfbemail2 =  strip_tags(trim($_POST['tfb_email2']));
-	$address =  strip_tags(trim($_POST['address']));
+	$user = str_replace(' ', '_', sanitize($_POST['tfb_name']));
+	$tfbpass1 = sanitize($_POST['tfb_password1']);
+	$tfbpass2 =  sanitize($_POST['tfb_password2']);
+	$tfbemail1 =  sanitize($_POST['tfb_email1']);
+	$tfbemail2 =  sanitize($_POST['tfb_email2']);
+	$address =  sanitize($_POST['address']);
 	if(empty($user) || empty($tfbpass1) || empty($tfbpass2) || empty($tfbemail1) || empty($tfbemail2) || empty($address)) {
 		$feedback = "All fields must be filled.";
 	} else{
-		if($tfbemail1 != $tfbemail2)  {
-			$feedback = "The email was not correctly repeated.";
-		} else{
-			$pattern = '/^(?=.*\d)(?=.*?[a-zA-Z])(?=.*?[\W_]).{10,}$/';
-			if(preg_match($pattern, $tfbpass1) != 1){
-				$feedback = "The password does not meet the requirements.";
+		if(!validateText($user, 2, 20)){ $feedback = "The username must be a string of 2-20 characters."; }
+		if(!validateText($address, 2, 50)){ $feedback = "The address must be a string of 2-50 characters."; }
+		if(!validateText($tfbemail1, 6, 50)){ $feedback = "The email must be a string of 6-50 characters."; }
+		if(!$feedback){
+			if($tfbemail1 != $tfbemail2)  {
+				$feedback = "The email was not correctly repeated.";
 			} else{
-				if($tfbpass1 != $tfbpass2)  {
-					$feedback = "The password was not correctly repeated.";
+				$pattern = '/^(?=.*\d)(?=.*?[a-zA-Z])(?=.*?[\W_]).{10,}$/';
+				if(preg_match($pattern, $tfbpass1) != 1){
+					$feedback = "The password does not meet the requirements.";
 				} else{
-					$password = password_hash($tfbpass1, PASSWORD_DEFAULT);
-					$db->createUser($user, $password, $address, $address, $email);
-					header("Location: register.php?success");
+					if($tfbpass1 != $tfbpass2)  {
+						$feedback = "The password was not correctly repeated.";
+					} else{
+						$password = password_hash($tfbpass1, PASSWORD_DEFAULT);
+						$db->createUser($user, $password, $address, $address, $email);
+						header("Location: register.php?success");
+					}
 				}
 			}
 		}
