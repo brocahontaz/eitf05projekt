@@ -260,6 +260,11 @@ class Database {
 		return $result;
 	}
 	
+	public function deleteCart($userName) {
+		$sql = "DELETE FROM productsforuser WHERE userName = ?";
+		$result = $this->executeUpdate($sql, array($userName));
+	}
+	
 }
 
 /* General functions */

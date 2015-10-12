@@ -5,25 +5,11 @@
 	require_once("includes/setup.php");
 	$db = new Database($host, $userName, $password, $database);
 	$isLogedIn = isset($_SESSION['username']);
-	if (isset($_GET["page"])){ 
-		$page_u = sanitize($_GET["page"]);
-		if(validateInt($page_u)){
-			$page  = $page_u; 
-		}
-	} else { 
-		$page=1;
-	}
-	if (isset($_GET["user"])) { $getuser  = $_GET["user"]; } else { header("location: index.php"); }; 
-	$num_per_page = 12;
 	
+	if (isset($_SESSION["cart"])) { $cart  = $_SESSION["cart"]; } else { header("location: index.php"); }; 
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
 		$username = $user->getUserName();
-		if(!($getuser == $user->getUserName())) {
-			header("location: shoppingcart.php?user=$username");
-		}
-		$cartproducts = $db->getCart($username);
-		$_SESSION['cart'] = $cartproducts;
 	} else {
 		header("location: index.php");
 	}
@@ -117,9 +103,12 @@
 				<div id="content">
 	
 					<div class="store_header_box">
-						SHOPPING CART
+						ORDER RECEIPT
 					</div>
-					<?php $products = $db->getCart($username); ?>
+					<?php $products = $_SESSION['cart']; 
+					unset($_SESSION['cart']);	
+					$db->deleteCart($userName);	
+					?>
 					<div class="product">
 						<div class="product name"><b>Id</b></div>
 						<div class="product name"><b>Product</b></div>
@@ -152,12 +141,7 @@
 						<div class="product price"><?php echo round($psum[0]); ?> SEK</div>
 					</div>
 					<?php } ?>
-					<div class="product pay">
-						<div class="product name"><b></b></div>
-						<a href="receipt.php">
-						<div id="pay_button"><b>Checkout</b></div>
-						</a>
-					</div>
+					
 				</div>
 			</div>
 <?php 

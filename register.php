@@ -35,7 +35,7 @@ if(isset($_POST['submit'])){
 						$feedback = "The password was not correctly repeated.";
 					} else{
 						$password = password_hash($tfbpass1, PASSWORD_DEFAULT);
-						$db->createUser($user, $password, $address, $address, $email);
+						$db->createUser($user, $password, $address, $tfbemail1);
 						header("Location: register.php?success");
 					}
 				}
