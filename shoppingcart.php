@@ -8,6 +8,7 @@
 	if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
 	if (isset($_GET["user"])) { $getuser  = $_GET["user"]; } else { header("location: index.php"); }; 
 	$num_per_page = 12;
+	$cartproducts = array();
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
 		$username = $user->getUserName();
@@ -111,15 +112,18 @@
 					</div>
 					<?php $products = $db->getCart($username); ?>
 					<div class="product">
-						<div class="product name"><b>Produkt</b></div>
-						<div class="product name"><b>Pris</b></div>
+						<div class="product name"><b>Id</b></div>
+						<div class="product name"><b>Product</b></div>
+						<div class="product name"><b>Price</b></div>
 					</div>
 					<?php foreach($products as $product) { ?>
 						<?php $productinfo = $db->getProductInfo($product['productId']); ?>
 						<div class="product">
-							<?php foreach($productinfo as $pinfo) { ?>	
+							<?php foreach($productinfo as $pinfo) { 
+								$cartproducts[] = $pinfo;
+							?>	
 							
-							
+								<div class="product price"><?php echo $pinfo['productId']; ?></div>
 								<div class="product name"><?php echo $pinfo['productName']; ?></div>
 								<div class="product price"><?php echo $pinfo['price']; ?> SEK</div>
 								
@@ -129,15 +133,22 @@
 					<?php } ?>
 					<div class="product">
 						<div class="product name"><b></b></div>
-						<div class="product name"><b>Total summa</b></div>
+						<div class="product name"><b>Total sum</b></div>
 					</div>
 					<?php $pricesum = $db->getSum($username); ?>
 					<?php foreach($pricesum as $psum) { ?>
 					<div class="product">
 						<div class="product name"><b></b></div>
+						<div class="product name"><b></b></div>
 						<div class="product price"><?php echo round($psum[0]); ?> SEK</div>
 					</div>
 					<?php } ?>
+					<div class="product pay">
+						<div class="product name"><b></b></div>
+						<a href="">
+						<div id="pay_button"><b>Checkout</b></div>
+						</a>
+					</div>
 				</div>
 			</div>
 <?php 
