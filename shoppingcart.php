@@ -23,7 +23,9 @@
 			header("location: shoppingcart.php?user=$username");
 		}
 		$cartproducts = $db->getCart($username);
+		if(!isset($cartproducts)) { header("location: index.php"); }
 		$_SESSION['cart'] = $cartproducts;
+		$_SESSION['sum'] = $db->getSum($username);
 	} else {
 		header("location: index.php");
 	}

@@ -107,7 +107,7 @@
 					</div>
 					<?php $products = $_SESSION['cart']; 
 					unset($_SESSION['cart']);	
-					$db->deleteCart($userName);	
+					$db->deleteCart($user->getUserName());	
 					?>
 					<div class="product">
 						<div class="product name"><b>Id</b></div>
@@ -133,7 +133,10 @@
 						<div class="product name"><b></b></div>
 						<div class="product name"><b>Total sum</b></div>
 					</div>
-					<?php $pricesum = $db->getSum($username); ?>
+					<?php 
+					$pricesum = $_SESSION['sum'];
+					unset($_SESSION['SUM']);
+					?>
 					<?php foreach($pricesum as $psum) { ?>
 					<div class="product">
 						<div class="product name"><b></b></div>
