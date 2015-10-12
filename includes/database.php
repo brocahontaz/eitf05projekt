@@ -262,6 +262,8 @@ class Database {
 	
 }
 
+/* General functions */
+
 function echo_array($array){
 	echo "<pre>";
 	print_r($array);
@@ -276,6 +278,33 @@ function validateTime($date){
 function validateDate($date){
     $d = DateTime::createFromFormat("Y-m-d", $date);
     return $d && $d->format("Y-m-d") == $date;
+}
+
+function sanitize($input){
+	return strip_tags(trim($input));
+}
+
+function validateText($text, $min_length, $max_length){
+	if(empty($text)){
+		return false;
+	}
+	if(!is_string($text)){
+		return false;
+	}
+	if(strlen($text)<$min_length || strlen($text)>$max_length){
+		return false;
+	}
+	return true;
+}
+
+function validateInt($int){
+	if(empty($int)){
+		return false;
+	}
+	if(!is_int($int)){
+		return false;
+	}
+	return true;
 }
 
 ?>

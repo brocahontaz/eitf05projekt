@@ -173,6 +173,12 @@ display: block;
 	text-decoration: none;
 }
 
+#signed_in_as_box .error{
+	font-size: 12px;
+	margin: 5px 0 -10px 0;
+	color: red;
+}
+
 /* Black span */
 .black {
 	color: #000;

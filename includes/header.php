@@ -9,6 +9,9 @@
 		$user = $_SESSION['user'];
 		$userName = $user->getUserName();
 	}
+	if(isset($_GET['login_error'])){
+		$login_error = sanitize($_GET['login_error']);
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -46,6 +49,20 @@
 									<input type="password" class="input_field_login" name="tfb_password" placeholder="PASSWORD"/>
 									<input type="submit" class="login_button" name="submit" value="SIGN IN" />
 								</form>
+								
+								<?php 
+								if(!empty($login_error)){
+									if($login_error == "empty"){ $error = "All fields must be filled."; }
+									if($login_error == "user"){ $error = "Username is of wrong format."; }
+									if($login_error == "pw"){ $error = "Password is of wrong format."; }
+									if($login_error == "nonexistent"){ $error = "Username not found."; }
+									if($login_error == "wrongpw"){ $error = "Wrong password."; }
+									if(isset($error)){
+										echo "<p class='error'>" . $error . "</p>";
+									}
+								} 	
+								?>
+								
 								<?php } ?>
 							</div>
 							<div id="account_menu">
