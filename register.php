@@ -9,13 +9,14 @@ if ($isLogedIn) {
 	$user = $_SESSION['user'];
 	header("Location: index.php");
 }
+
 if(isset($_POST['submit'])){
-	$user = str_replace(' ', '_', $_POST['tfb_name']);
-	$tfbpass1 = $_POST['tfb_password1'];
-	$tfbpass2 = $_POST['tfb_password2'];
-	$tfbemail1 = $_POST['tfb_email1'];
-	$tfbemail2 = $_POST['tfb_email2'];
-	$address = $_POST['address'];
+	$user = str_replace(' ', '_', strip_tags(trim($_POST['tfb_name'])));
+	$tfbpass1 = strip_tags(trim($_POST['tfb_password1']));
+	$tfbpass2 =  strip_tags(trim($_POST['tfb_password2']));
+	$tfbemail1 =  strip_tags(trim($_POST['tfb_email1']));
+	$tfbemail2 =  strip_tags(trim($_POST['tfb_email2']));
+	$address =  strip_tags(trim($_POST['address']));
 	if(empty($user) || empty($tfbpass1) || empty($tfbpass2) || empty($tfbemail1) || empty($tfbemail2) || empty($address)) {
 		$feedback = "All fields must be filled.";
 	} else{
@@ -37,8 +38,8 @@ if(isset($_POST['submit'])){
 		}
 	}
 }
-?>
 
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
