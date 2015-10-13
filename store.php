@@ -1,8 +1,6 @@
 <?php 
-	require_once("includes/header.php");
-?>
-
-<?php 
+	require_once("includes/setup.php");
+	
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
 	}
@@ -19,6 +17,10 @@
 			header("Location: store.php?page=$page");
 		}
 	}
+	
+	$token = md5(uniqid(rand(), TRUE));
+	$_SESSION['token'] = $token;
+	require_once("includes/header.php");
 ?>
 
 			
