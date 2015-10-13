@@ -1,4 +1,7 @@
 <?php 
+	require_once("includes/setup.php");
+	$token = md5(uniqid(rand(), TRUE));
+	$_SESSION['token'] = $token;
 	require_once("includes/header.php");
 ?>
 			<div id="menu_wrapper">

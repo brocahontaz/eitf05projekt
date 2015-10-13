@@ -1,42 +1,36 @@
 <?php 
-require_once("includes/database.php");
-require_once("includes/mysql_connect_data.php");
-require_once("includes/user.php");
-require_once("includes/setup.php");
-$db = new Database($host, $userName, $password, $database);
-$isLogedIn = isset($_SESSION['username']);
-if ($isLogedIn) {
-	$user = $_SESSION['user'];
-	header("Location: index.php");
-}
+require_once("includes/setup.php");	
 
 if(isset($_POST['submit'])){
-	$user = str_replace(' ', '_', sanitize($_POST['tfb_name']));
-	$tfbpass1 = sanitize($_POST['tfb_password1']);
-	$tfbpass2 =  sanitize($_POST['tfb_password2']);
-	$tfbemail1 =  sanitize($_POST['tfb_email1']);
-	$tfbemail2 =  sanitize($_POST['tfb_email2']);
-	$address =  sanitize($_POST['address']);
-	if(empty($user) || empty($tfbpass1) || empty($tfbpass2) || empty($tfbemail1) || empty($tfbemail2) || empty($address)) {
-		$feedback = "All fields must be filled.";
-	} else{
-		if(!validateText($user, 2, 20)){ $feedback = "The username must be a string of 2-20 characters."; }
-		if(!validateText($address, 2, 50)){ $feedback = "The address must be a string of 2-50 characters."; }
-		if(!validateText($tfbemail1, 6, 50)){ $feedback = "The email must be a string of 6-50 characters."; }
-		if(!$feedback){
-			if($tfbemail1 != $tfbemail2)  {
-				$feedback = "The email was not correctly repeated.";
-			} else{
-				$pattern = '/^(?=.*\d)(?=.*?[a-zA-Z])(?=.*?[\W_]).{10,}$/';
-				if(preg_match($pattern, $tfbpass1) != 1){
-					$feedback = "The password does not meet the requirements.";
+	if($_POST['token'] === $_SESSION['token']){
+		$user = str_replace(' ', '_', sanitize($_POST['tfb_name']));
+		$tfbpass1 = sanitize($_POST['tfb_password1']);
+		$tfbpass2 =  sanitize($_POST['tfb_password2']);
+		$tfbemail1 =  sanitize($_POST['tfb_email1']);
+		$tfbemail2 =  sanitize($_POST['tfb_email2']);
+		$address =  sanitize($_POST['address']);
+		
+		if(empty($user) || empty($tfbpass1) || empty($tfbpass2) || empty($tfbemail1) || empty($tfbemail2) || empty($address)) {
+			$feedback = "All fields must be filled.";
+		} else{
+			if(!validateText($user, 2, 20)){ $feedback = "The username must be a string of 2-20 characters."; }
+			if(!validateText($address, 2, 50)){ $feedback = "The address must be a string of 2-50 characters."; }
+			if(!validateText($tfbemail1, 6, 50)){ $feedback = "The email must be a string of 6-50 characters."; }
+			if(!$feedback){
+				if($tfbemail1 != $tfbemail2)  {
+					$feedback = "The email was not correctly repeated.";
 				} else{
-					if($tfbpass1 != $tfbpass2)  {
-						$feedback = "The password was not correctly repeated.";
+					$pattern = '/^(?=.*\d)(?=.*?[a-zA-Z])(?=.*?[\W_]).{10,}$/';
+					if(preg_match($pattern, $tfbpass1) != 1){
+						$feedback = "The password does not meet the requirements.";
 					} else{
-						$password = password_hash($tfbpass1, PASSWORD_DEFAULT);
-						$db->createUser($user, $password, $address, $tfbemail1);
-						header("Location: register.php?success");
+						if($tfbpass1 != $tfbpass2)  {
+							$feedback = "The password was not correctly repeated.";
+						} else{
+							$password = password_hash($tfbpass1, PASSWORD_DEFAULT);
+							$db->createUser($user, $password, $address, $tfbemail1);
+							header("Location: register.php?success");
+						}
 					}
 				}
 			}
@@ -44,67 +38,11 @@ if(isset($_POST['submit'])){
 	}
 }
 
+$token = md5(uniqid(rand(), TRUE));
+$_SESSION['token'] = $token;
+require_once("includes/header.php");
+
 ?>
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>
-			thefruitbasket
-		</title>
-		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" />
-		<link rel="icon" type="image/png" href="./images/favicon.png" />
-		<script src="script/jquery.js" type="text/javascript"></script>
-		<script src="script/jquery-ui.js" type="text/javascript"></script>
-		<script src="script/menu.js" type="text/javascript"></script>
-		</head>
-	<body>
-		<div id="main_wrapper">
-			<div id="topbar_wrapper">
-				<div id="topbar_content">
-					<div id="logo_box">
-						<img src="./images/thefruitbasketlogo.png" />
-					</div>
-					<div id="account_box">
-						<div class="account_content">
-							<div id="signed_in_as_box">
-								<?php if ($isLogedIn) { ?>
-								SIGNED IN AS <span class="black"><?php echo $user->getUserName(); ?></span>
-								
-								<?php } else { ?>
-								
-								<form name="loginform" id="loginform" method="POST" action="includes/login_parse.php">
-									<input type="text" class="input_field_login" name="tfb_name" placeholder="USERNAME"/>
-									<input type="password" class="input_field_login" name="tfb_password" placeholder="PASSWORD"/>
-									<input type="submit" class="login_button" name="submit" value="SIGN IN" />
-								</form>
-								<?php } ?>
-							</div>
-							<div id="account_menu">
-								<?php if ($isLogedIn) { ?>
-								<a href="account.php?user=<?php echo $user->getUserName(); ?>" class="lgreen_to_dgreen">MY ACCOUNT</a> - 
-								<a href="orders.php?user=<?php echo $user->getUserName(); ?>" class="lgreen_to_dgreen">ORDERS</a> - 
-								<a href="settings.php?user=<?php echo $user->getUserName(); ?>" class="lgreen_to_dgreen">SETTINGS</a>
-								<?php } else { ?>
-								NOT YET A MEMBER?
-								<a href="register.php" class="lgreen_to_dgreen">
-									<b>REGISTER</b> TODAY!
-								</a>
-								<?php } ?>
-							</div>
-						</div>
-						<div class="account_content">
-							<?php if ($isLogedIn) { ?>
-							<a href="shoppingcart.php?user=<?php echo $user->getUserName(); ?>">
-							<?php } else { ?>
-							<a href="register.php">
-							<?php } ?>
-								<img src="./images/shoppingcart.png" />
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div id="menu_wrapper">
 				<div id="menu_container">
 					<!--<div id="menu_object_container">-->
@@ -142,6 +80,7 @@ if(isset($_POST['submit'])){
 						<p class="breadtext">The password must be at least 10 characters long, contain one special character and one number.</p>
 						<input type="password" class="input_field_login" name="tfb_password1" placeholder="PASSWORD" value="<?php if(isset($feedback)){ echo $tfbpass1; } ?>"/><br /><br />
 						<input type="password" class="input_field_login" name="tfb_password2" placeholder="REPEAT PASSWORD" value="<?php if(isset($feedback)){ echo $tfbpass2; } ?>"/><br /><br />
+						<input type="hidden" name="token" value="<?php echo $token; ?>" />
 						<input type="submit" class="submit_button_login" name="submit" value="CREATE ACCOUNT" />
 					</form>
 					<?php if(isset($_GET['success'])){ ?><p class ="breadtext" style="color: green";>Account succesfully created!</p><?php } ?>

@@ -1,7 +1,4 @@
 <?php 
-	require_once("includes/database.php");
-	require_once("includes/mysql_connect_data.php");
-	require_once("includes/user.php");
 	require_once("includes/setup.php");
 	$db = new Database($host, $userName, $password, $database);
 	$isLogedIn = isset($_SESSION['username']);

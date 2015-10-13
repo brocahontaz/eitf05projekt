@@ -1,18 +1,3 @@
-<?php 
-	require_once("includes/database.php");
-	require_once("includes/mysql_connect_data.php");
-	require_once("includes/user.php");
-	require_once("includes/setup.php");
-	$db = new Database($host, $userName, $password, $database);
-	$isLogedIn = isset($_SESSION['username']);
-	if ($isLogedIn) {
-		$user = $_SESSION['user'];
-		$userName = $user->getUserName();
-	}
-	if(isset($_GET['login_error'])){
-		$login_error = sanitize($_GET['login_error']);
-	}
-?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -47,6 +32,7 @@
 								<form name="loginform" id="loginform" method="POST" action="includes/login_parse.php">
 									<input type="text" class="input_field_login" name="tfb_name" placeholder="USERNAME"/>
 									<input type="password" class="input_field_login" name="tfb_password" placeholder="PASSWORD"/>
+									<input type="hidden" name="token" value="<?php echo $token; ?>" />
 									<input type="submit" class="login_button" name="submit" value="SIGN IN" />
 								</form>
 								

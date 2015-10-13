@@ -1,4 +1,5 @@
 <?php 
+	require_once("includes/setup.php");
 	require_once("includes/header.php");
 ?>
 			<div id="menu_wrapper">
