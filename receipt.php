@@ -5,20 +5,11 @@
 	require_once("includes/setup.php");
 	$db = new Database($host, $userName, $password, $database);
 	$isLogedIn = isset($_SESSION['username']);
-	$page = setPage($_GET['page']);
-	if (isset($_GET["user"])) { $getuser  = $_GET["user"]; } else { header("location: index.php"); }; 
-	$num_per_page = 12;
 	
+	if (isset($_SESSION["cart"])) { $cart  = $_SESSION["cart"]; } else { header("location: index.php"); }; 
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
 		$username = $user->getUserName();
-		if(!($getuser == $user->getUserName())) {
-			header("location: shoppingcart.php?user=$username");
-		}
-		$cartproducts = $db->getCart($username);
-		if(!isset($cartproducts)) { header("location: index.php"); }
-		$_SESSION['cart'] = $cartproducts;
-		$_SESSION['sum'] = $db->getSum($username);
 	} else {
 		header("location: index.php");
 	}
@@ -112,9 +103,12 @@
 				<div id="content">
 	
 					<div class="store_header_box">
-						SHOPPING CART
+						ORDER RECEIPT
 					</div>
-					<?php $products = $db->getCart($username); ?>
+					<?php $products = $_SESSION['cart']; 
+					unset($_SESSION['cart']);	
+					$db->deleteCart($user->getUserName());	
+					?>
 					<div class="product">
 						<div class="product name"><b>Id</b></div>
 						<div class="product name"><b>Product</b></div>
@@ -139,7 +133,10 @@
 						<div class="product name"><b></b></div>
 						<div class="product name"><b>Total sum</b></div>
 					</div>
-					<?php $pricesum = $db->getSum($username); ?>
+					<?php 
+					$pricesum = $_SESSION['sum'];
+					unset($_SESSION['SUM']);
+					?>
 					<?php foreach($pricesum as $psum) { ?>
 					<div class="product">
 						<div class="product name"><b></b></div>
@@ -147,12 +144,7 @@
 						<div class="product price"><?php echo round($psum[0]); ?> SEK</div>
 					</div>
 					<?php } ?>
-					<div class="product pay">
-						<div class="product name"><b></b></div>
-						<a href="receipt.php">
-						<div id="pay_button"><b>Checkout</b></div>
-						</a>
-					</div>
+					
 				</div>
 			</div>
 <?php 
