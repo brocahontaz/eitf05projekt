@@ -35,6 +35,8 @@ if(isset($_POST['submit'])){
 				}
 			}
 		}
+	} else{
+		$feedback = "Incorrect SCRF token!";
 	}
 }
 
