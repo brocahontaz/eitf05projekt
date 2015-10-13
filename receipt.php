@@ -132,7 +132,7 @@
 					</div>
 					<?php 
 					$pricesum = $_SESSION['sum'];
-					unset($_SESSION['SUM']);
+					unset($_SESSION['sum']);
 					?>
 					<?php foreach($pricesum as $psum) { ?>
 					<div class="product">
