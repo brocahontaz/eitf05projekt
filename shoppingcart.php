@@ -5,14 +5,7 @@
 	require_once("includes/setup.php");
 	$db = new Database($host, $userName, $password, $database);
 	$isLogedIn = isset($_SESSION['username']);
-	if (isset($_GET["page"])){ 
-		$page_u = sanitize($_GET["page"]);
-		if(validateInt($page_u)){
-			$page  = $page_u; 
-		}
-	} else { 
-		$page=1;
-	}
+	$page = setPage($_GET['page']);
 	if (isset($_GET["user"])) { $getuser  = $_GET["user"]; } else { header("location: index.php"); }; 
 	$num_per_page = 12;
 	$cartproducts = array();

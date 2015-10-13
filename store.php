@@ -7,18 +7,18 @@
 		$user = $_SESSION['user'];
 	}
 	
-	if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; }; 
+	$page = setPage($_GET['page']);
 	$num_per_page = 12;
 	if(isset($_GET["addid"])) {
 		if(!$isLogedIn) {
 			header("Location: store.php");
 		}
-		$productId = $_GET["addid"];
-		$pagecart = $_GET["page"];
-		$db->addProductToCart($user->getUserName(), $productId);
-		header("Location: store.php?page=$page");
+		$productId = sanitize($_GET["addid"]);
+		if(validateInt((int)$productId)){
+			$db->addProductToCart($user->getUserName(), $productId);
+			header("Location: store.php?page=$page");
+		}
 	}
-	
 ?>
 
 			

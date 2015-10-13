@@ -307,4 +307,14 @@ function validateInt($int){
 	return true;
 }
 
+function setPage($input){
+	if (!empty($input)){ 
+		$page_u = sanitize($input);
+		if(validateInt((int)$page_u)){
+			return $page_u;
+		}
+	} 
+	return 1;
+}
+
 ?>
