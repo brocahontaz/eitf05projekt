@@ -11,10 +11,12 @@
 		if(!$isLogedIn) {
 			header("Location: store.php");
 		}
-		$productId = sanitize($_GET["addid"]);
-		if(validateInt((int)$productId)){
-			$db->addProductToCart($user->getUserName(), $productId);
-			header("Location: store.php?page=$page");
+		if($_GET['token'] == $_SESSION['token']){
+			$productId = sanitize($_GET["addid"]);
+			if(validateInt((int)$productId)){
+				$db->addProductToCart($user->getUserName(), $productId);
+				header("Location: store.php?page=$page");
+			}
 		}
 	}
 	
@@ -90,7 +92,7 @@
 						</div>
 						<div class="buy_now">
 							<?php if($isLogedIn) { ?>
-							<a href="store.php?page=<?php echo $page ?>&addid=<?php echo $promotedproduct['productId']; ?>" class="lgreen_to_dgreen">BUY NOW</a>
+							<a href="store.php?page=<?php echo $page; ?>&addid=<?php echo $promotedproduct['productId']; ?>&token=<?php echo $token; ?>" class="lgreen_to_dgreen">BUY NOW</a>
 							<?php } else { echo "Log in to buy"; } ?>
 						</div>
 					</div>
@@ -126,7 +128,7 @@
 						</div>
 						<div class="buy_now small">
 							<?php if($isLogedIn) { ?>
-							<a href="store.php?page=<?php echo $page ?>&addid=<?php echo $product['productId']; ?>" class="lgreen_to_dgreen">BUY NOW</a>
+							<a href="store.php?page=<?php echo $page ?>&addid=<?php echo $product['productId']; ?>&token=<?php echo $token; ?>" class="lgreen_to_dgreen">BUY NOW</a>
 							<?php } else { echo "Log in to buy"; } ?>
 						</div>
 					</div>

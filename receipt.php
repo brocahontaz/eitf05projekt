@@ -1,9 +1,12 @@
 <?php 
 	require_once("includes/setup.php");
-	$db = new Database($host, $userName, $password, $database);
 	$isLogedIn = isset($_SESSION['username']);
 	
-	if (isset($_SESSION["cart"])) { $cart  = $_SESSION["cart"]; } else { header("location: index.php"); }; 
+	if (isset($_SESSION["cart"]) && $_GET['token'] == $_SESSION['token']) { 
+		$cart  = $_SESSION["cart"]; 
+	} else { 
+		header("location: index.php"); 
+	} 
 	if ($isLogedIn) {
 		$user = $_SESSION['user'];
 		$username = $user->getUserName();
